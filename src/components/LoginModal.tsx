@@ -1,6 +1,5 @@
-import { Modal as AntdModal, ModalProps, message } from 'antd';
+import { Modal as AntdModal, ModalProps } from 'antd';
 import type { FC } from 'react';
-import { useState } from 'react';
 import useLoginStore from '../zustand/UserLogin/useUserLoginStore';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import useLoginModalStore from '../zustand/Modal/useLoginModalStore';
@@ -10,7 +9,7 @@ interface FormProps {
     password: string;
 }
 
-const LoginModal: FC<ModalProps> = ({ open, onCancel, onOk }) => {
+const LoginModal: FC<ModalProps> = () => {
 
     const { setIsLogin } = useLoginStore();
     const { isLoginModalOpen, setIsLoginModalOpen } = useLoginModalStore();

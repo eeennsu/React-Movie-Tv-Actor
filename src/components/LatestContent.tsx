@@ -12,7 +12,7 @@ interface Props {
 const LatestContent: FC<Props> = ({ movieData, tvData }) => {
 
     return (
-        <div className='relative flex flex-col shadow-xl h-96'>
+        <article className='relative flex flex-col shadow-xl h-96'>
             <div className='absolute w-full'>   
                 <div className='h-96' >
                     {movieData?.backdrop_path ? (
@@ -35,7 +35,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                     </div>                          
                 </div>              
             </div> 
-        </div>
+        </article>
     );
 };
 

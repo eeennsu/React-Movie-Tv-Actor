@@ -9,7 +9,6 @@ import useSearchPerson from '../../hooks/people/useSearchPerson';
 import { useNavigate } from 'react-router-dom';
 import useSerachResultStore from '../../zustand/search/useSerachResultStore';
 import SearchList from './AutoCompleteList';
-import Search from 'antd/es/input/Search';
 import { SearchMovieResponse } from '../../apis/types/movieTypes';
 import { SearchTvResponse } from '../../apis/types/tvTypes';
 import { SearchPersonResponse } from '../../apis/types/personTypes';

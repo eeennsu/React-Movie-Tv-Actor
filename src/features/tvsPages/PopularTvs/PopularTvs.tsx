@@ -9,7 +9,7 @@ const PopularTvs: FC = () => {
     const { data } = usePopularTvs();
 
     return (
-        <div className='mt-5'>
+        <article className='mt-5'>
             <Category>인기 방영작</Category>
             <Slider>
                 {
@@ -21,7 +21,7 @@ const PopularTvs: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div> 
+        </article> 
     );
 };
 

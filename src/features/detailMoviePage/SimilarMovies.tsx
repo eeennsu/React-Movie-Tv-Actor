@@ -10,10 +10,8 @@ interface Props {
 
 const SimilarMovies: FC<Props> = ({ similarDatas }) => {
 
-
-
     return (
-        <div className='p-2'>   
+        <article className='p-2'>   
            <div className='my-10 border border-t-2'/>
             <SubTitle>비슷한 작품들</SubTitle>      
             <ListTemplate isLast>
@@ -26,7 +24,7 @@ const SimilarMovies: FC<Props> = ({ similarDatas }) => {
                     ))
                 }
             </ListTemplate>
-        </div>
+        </article>
     );
 };
 

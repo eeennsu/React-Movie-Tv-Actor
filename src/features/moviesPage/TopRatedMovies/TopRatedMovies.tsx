@@ -9,7 +9,7 @@ const TopRatedMovies: FC = () => {
     const { data, error, isLoading } = useTopRatedMovies();
 
     return (
-        <div>
+        <article>
             <Category>상위 평점작</Category>
             <Slider>
                 {
@@ -21,7 +21,7 @@ const TopRatedMovies: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div>       
+        </article>       
     );
 };
 

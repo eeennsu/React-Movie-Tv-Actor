@@ -1,11 +1,6 @@
 import type { FC, PropsWithChildren } from 'react';
-//import { useState } from 'react';
 
-interface Props {
-    
-}
-
-const Category: FC<PropsWithChildren<Props>> = ({ children }) => {
+const Category: FC<PropsWithChildren> = ({ children }) => {
 
     return (
         <h1 className='mb-6 text-3xl font-bold tracking-tight text-black md:w-full md:border-b-0 md:border-l-4 md:text-4xl md:pl-3 md:border-l-teal-500'>

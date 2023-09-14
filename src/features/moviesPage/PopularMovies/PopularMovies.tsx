@@ -9,7 +9,7 @@ const PopularMovies: FC = () => {
     const { data, error, isLoading } = usePopularMovie();
 
     return (
-        <div className=''>
+        <article>
             <Category>인기 개봉작</Category>
             <Slider>
                 {
@@ -21,7 +21,7 @@ const PopularMovies: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div>        
+        </article>        
     );
 };
 

@@ -15,7 +15,7 @@ const DetailMovieInfo: FC<Props> = ({ movieData, keywordsData }) => {
 
 
     return (
-        <div className=''>             
+        <article>             
             <div className='my-10 border border-t-2'/>
             <SubTitle>상세 정보</SubTitle>    
             <div className='flow-root'>
@@ -76,7 +76,7 @@ const DetailMovieInfo: FC<Props> = ({ movieData, keywordsData }) => {
                     </div>
                 </dl>
             </div>       
-        </div>
+        </article>
     );
 };
 

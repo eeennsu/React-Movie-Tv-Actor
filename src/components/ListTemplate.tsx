@@ -1,6 +1,5 @@
 import type { FC, PropsWithChildren } from 'react';
 import Divider from './Divider';
-//import { useState } from 'react';
 
 interface Props {
     isLast?: boolean;

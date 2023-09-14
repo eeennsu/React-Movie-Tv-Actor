@@ -9,12 +9,12 @@ interface Props{
 const MainTvInfo: FC<Props> = ({ tvData }) => {
     
     return (
-        <div className='grid mt-5 md:grid-cols-5'>
+        <article className='grid mt-5 md:grid-cols-5'>
             <div className='w-48'>
                 <img className='w-full' src={`${tvData?.poster_path && getMImageUrl(tvData?.poster_path)}`} alt={`${tvData?.name} poster`} />
             </div>
             <div className='flex flex-col items-center justify-center col-span-4'>
-                <section className="p-10">
+                <div className="p-10">
                     <div className="max-w-screen-xl px-1 py-4 mx-auto md:px-3 md:py-6 lg:px-4">
                         <div className="max-w-3xl mx-auto text-center">
                             <h2 className="text-3xl font-thin text-gray-900 md:text-4xl">
@@ -52,9 +52,9 @@ const MainTvInfo: FC<Props> = ({ tvData }) => {
                             </dl>
                         </div>
                     </div>
-                </section>        
+                </div>        
             </div>
-        </div>
+        </article>
     );
 };
 

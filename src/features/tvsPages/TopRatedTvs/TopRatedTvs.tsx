@@ -9,7 +9,7 @@ const TopRatedTv: FC = () => {
     const { data } = useTopRatedTvs();
 
     return (
-        <div className='mt-5'>
+        <article className='mt-5'>
             <Category>상위 평점작</Category>
             <Slider>
                 {
@@ -21,7 +21,7 @@ const TopRatedTv: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div> 
+        </article> 
     );
 };
 

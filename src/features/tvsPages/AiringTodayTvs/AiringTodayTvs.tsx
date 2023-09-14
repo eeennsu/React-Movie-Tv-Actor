@@ -9,7 +9,7 @@ const AiringTodayTvs: FC = () => {
     const { data } = useAiringTodayTv();
 
     return (
-        <div className='mt-5'>
+        <article className='mt-5'>
             <Category>오늘 방영중</Category>            
             <Slider>
                 {
@@ -21,7 +21,7 @@ const AiringTodayTvs: FC = () => {
                     ))
                 }  
             </Slider>  
-        </div>        
+        </article>        
     );
 };
 

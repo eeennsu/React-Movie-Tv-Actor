@@ -10,7 +10,7 @@ interface Props{
 const DetailTvInfo: FC<Props> = ({ tvData, keywordsData }) => {
 
     return (
-        <div>
+        <article>
             <div className='my-10 border border-t-2'/>
             <SubTitle>상세 정보</SubTitle>   
             <div className='flow-root'>
@@ -71,7 +71,7 @@ const DetailTvInfo: FC<Props> = ({ tvData, keywordsData }) => {
                     </div>
                 </dl>        
             </div>  
-        </div>
+        </article>
     );
 };
 

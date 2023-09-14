@@ -36,7 +36,7 @@ const ResultsBody: FC = () => {
     }, [isFetching, movies, tvs, persons]);
     
     return (
-        <div className='p-4 rounded-md shadow-2xl bg-white/80'>           
+        <article className='p-4 rounded-md shadow-2xl bg-white/80'>           
             {
                 isFetching ? <Skeleton loading={Boolean(isFetching)} active className='w-96 '/> : (
                     select === 'movie' ? movies?.length === 0 ? (
@@ -82,7 +82,7 @@ const ResultsBody: FC = () => {
                 )
             }     
        
-        </div>
+        </article>
     );
 };
 

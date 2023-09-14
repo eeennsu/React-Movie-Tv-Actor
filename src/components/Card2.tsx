@@ -4,7 +4,6 @@ import { LeastMovieInfo } from '../apis/types/movieTypes';
 import { getLImageUrl } from '../utils/utils';
 import { LeastTvInfo } from '../apis/types/tvTypes';
 import { Tooltip } from 'antd';
-//import { useState } from 'react';
 
 interface Props {
     movie?: LeastMovieInfo;

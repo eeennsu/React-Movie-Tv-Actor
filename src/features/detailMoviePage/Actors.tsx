@@ -28,7 +28,7 @@ const Actors: FC<Props> = ({ actorsData }) => {
     }, [actorsData, visibleCount]);
 
     return (
-        <div>            
+        <article>            
             <div className='my-10 border border-t-2'/>
             <SubTitle>출연 배우</SubTitle>    
             <ListTemplate isLast>
@@ -46,7 +46,7 @@ const Actors: FC<Props> = ({ actorsData }) => {
                     {isfull ? <CheckOutlined /> : 'more data'}
                 </button>
             </div>
-        </div>
+        </article>
     );
 };
 

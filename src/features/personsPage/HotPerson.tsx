@@ -11,7 +11,7 @@ const HotPerson: FC = () => {
     const onePerson = data?.results.at(0);
 
     return (
-        <div className='mt-5 text-black hero' style={{ 
+        <article className='mt-5 text-black hero' style={{ 
             backgroundImage: `url('/images/movie_bg.jpg')`,
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',        
@@ -44,7 +44,7 @@ const HotPerson: FC = () => {
                     </div>             
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

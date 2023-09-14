@@ -9,7 +9,7 @@ interface Props {
 const MainMovieInfo: FC<Props> = ({ movieData }) => {
 
     return (
-        <div className='grid mt-5 md:grid-cols-5'>
+        <article className='grid mt-5 md:grid-cols-5'>
             <div className='w-48'>
                 <img className='w-full' src={`${movieData?.poster_path && getXSImageUrl(movieData?.poster_path)}`} alt={`${movieData?.original_title} poster`}/>
             </div>              
@@ -57,7 +57,7 @@ const MainMovieInfo: FC<Props> = ({ movieData }) => {
                     </div>
                 </section>               
             </div>  
-        </div>
+        </article>
     );
 };
 

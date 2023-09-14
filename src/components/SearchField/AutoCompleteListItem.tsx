@@ -1,5 +1,6 @@
 import { Avatar, Card, Image, Popover, Spin } from 'antd';
-import { useMemo, type FC } from 'react';
+import type { FC } from 'react';
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DetailMovie } from '../../apis/types/movieTypes';
 import { getLImageUrl } from '../../utils/utils';

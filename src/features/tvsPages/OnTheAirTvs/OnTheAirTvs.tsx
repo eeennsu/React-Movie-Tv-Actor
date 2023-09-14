@@ -10,7 +10,7 @@ const OnTheAirTvs: FC = () => {
     const { data } = useOnTheAirTvs();
 
     return (
-        <div className='mt-5'>
+        <article className='mt-5'>
             <Category>방영 예정작</Category>
             <Slider>
                 {
@@ -22,7 +22,7 @@ const OnTheAirTvs: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div>  
+        </article>  
     );
 };
 

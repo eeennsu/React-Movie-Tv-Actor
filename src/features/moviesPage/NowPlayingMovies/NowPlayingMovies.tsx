@@ -9,7 +9,7 @@ const NowPlayingMovies: FC = () => {
     const { data, isLoading } = useNowPlayingMovie();
 
     return (
-        <div>
+        <article>
             <Category>현재 상영작</Category>
             <Slider>
                 {
@@ -21,7 +21,7 @@ const NowPlayingMovies: FC = () => {
                     ))
                 }  
             </Slider>         
-        </div>       
+        </article>       
     );
 };
 

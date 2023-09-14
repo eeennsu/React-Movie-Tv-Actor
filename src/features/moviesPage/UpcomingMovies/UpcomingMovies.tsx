@@ -10,7 +10,7 @@ const UpcomingMovies: FC = () => {
     const { data, error, isLoading } = useUpcomingMovies();
 
     return (
-        <div>
+        <article>
             <Category>개봉 예정작</Category>
             <Slider>
                 {
@@ -22,7 +22,7 @@ const UpcomingMovies: FC = () => {
                     ))
                 }  
             </Slider> 
-        </div>               
+        </article>               
     );
 };
 

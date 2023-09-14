@@ -9,7 +9,7 @@ const PopularPersons: FC = () => {
     const { data, error, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfinitePopularPersons();
   
     return (
-        <div>            
+        <article>            
             <Category>인기 배우</Category>
             <ListTemplate isLast>
                 {
@@ -27,7 +27,7 @@ const PopularPersons: FC = () => {
                     ))
                 }  
             </ListTemplate>
-        </div>
+        </article>
     );
 };
 

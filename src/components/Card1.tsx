@@ -1,11 +1,11 @@
-import type { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
-import { memo } from 'react';
-import { LeastMovieInfo } from '../apis/types/movieTypes';
-import { LeastTvInfo } from '../apis/types/tvTypes';
-import { LeastPersonInfo2 } from '../apis/types/personTypes';
-import { Link } from 'react-router-dom';
-import { getLImageUrl } from '../utils/utils';
-import { Tooltip } from 'antd';
+import type { FC }              from 'react';
+import { memo }                 from 'react';
+import { LeastMovieInfo }       from '../apis/types/movieTypes';
+import { LeastTvInfo }          from '../apis/types/tvTypes';
+import { LeastPersonInfo2 }     from '../apis/types/personTypes';
+import { Link }                 from 'react-router-dom';
+import { getLImageUrl }         from '../utils/utils';
+import { Tooltip }              from 'antd';
 
 interface Props {
     movie?: LeastMovieInfo;

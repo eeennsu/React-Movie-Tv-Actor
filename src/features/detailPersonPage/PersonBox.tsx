@@ -45,7 +45,7 @@ const PersonBox: FC<Props> = ({ personData }) => {
     // ];
 
     return ( 
-        <div className='flex flex-col mt-4 lg:flex-row '>
+        <article className='flex flex-col mt-4 lg:flex-row '>
             <div className='flex'>
                 <Image className='w-full h-full' src={personData && getLImageUrl(personData.profile_path)}/>
             </div>            
@@ -89,7 +89,7 @@ const PersonBox: FC<Props> = ({ personData }) => {
                     ) : null
                 }             
             </div>  
-        </div>
+        </article>
     );
 };
 

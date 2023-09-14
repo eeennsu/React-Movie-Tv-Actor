@@ -12,7 +12,7 @@ const KnownForMedias: FC<Props> = ({ also_known_as }) => {
     console.log('also_known_as', also_known_as);
 
     return (
-        <div className='p-2'>
+        <article className='p-2'>
             <div className='my-10 border border-t-2'/>
             <SubTitle>Cast In Medias</SubTitle>
             <ListTemplate isLast>
@@ -25,7 +25,7 @@ const KnownForMedias: FC<Props> = ({ also_known_as }) => {
                 )) : null
             }
             </ListTemplate>        
-        </div>       
+        </article>       
     )
 };
 
