@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import {  MovieListResponse } from '../../apis/types/movieTypes';
 import ListTemplate from '../../components/ListTemplate';
 import SubTitle from '../../components/SubTitle';
-import Card2 from '../../components/Card2';
+import Card2 from '../../components/Card/Card2';
 
 interface Props {
     similarDatas?: MovieListResponse

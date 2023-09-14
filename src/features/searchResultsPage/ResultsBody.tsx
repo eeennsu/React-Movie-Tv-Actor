@@ -7,19 +7,20 @@ import { LeastTvInfo } from '../../apis/types/tvTypes';
 import { DetailPerson } from '../../apis/types/personTypes';
 import Empty from '../../components/Empty';
 import { useIsFetching } from '@tanstack/react-query';
-import { Skeleton } from 'antd';
 import useSearchAutoListStore from '../../zustand/search/useSearchAutoListStore';
-import Card1 from '../../components/Card1';
+import Card1 from '../../components/Card/Card1';
+import Skeleton from '../../components/Skeleton/Skeleton';
 
 const ResultsBody: FC = () => {
 
     const { select } = useSearchSelectStore();
-    const { results: movies } = useSerachResultStore() as { results: LeastMovieInfo[] };
+    const { results: movies  } = useSerachResultStore() as { results: LeastMovieInfo[] };
     const { results: tvs } = useSerachResultStore() as { results: LeastTvInfo[] };
     const { results: persons } = useSerachResultStore() as { results: DetailPerson[] };
     const { setVisible } = useSearchAutoListStore();
     
     const isFetching = useIsFetching();
+   
 
     // 패칭이 완료될 때마다 자동완성 창 숨기기
     useEffect(() => {
@@ -33,12 +34,14 @@ const ResultsBody: FC = () => {
         }
 
         return () => clearTimeout(timerId)
-    }, [isFetching, movies, tvs, persons]);
+    }, [isFetching, movies, tvs, persons, setVisible]);
     
     return (
         <article className='p-4 rounded-md shadow-2xl bg-white/80'>           
             {
-                isFetching ? <Skeleton loading={Boolean(isFetching)} active className='w-96 '/> : (
+                isFetching ? (
+                    <Skeleton />
+                ): (
                     select === 'movie' ? movies?.length === 0 ? (
                         <Empty />
                     ) : (

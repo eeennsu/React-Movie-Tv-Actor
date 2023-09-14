@@ -1,14 +1,19 @@
 import type { FC } from 'react';
 import LatestContent from '../../../components/LatestContent';
 import useLatestTv from '../../../hooks/tv/useLatestTv';
+import LatestSkeleton from '../../../components/Skeleton/LatestSkeleton';
 
 
 const LatestTv: FC = () => {
 
-    const { data } = useLatestTv();
+    const { data, isLoading } = useLatestTv();
 
     return (
-        <LatestContent tvData={data} />          
+        isLoading ? (
+            <LatestSkeleton />
+        ) : (
+            <LatestContent tvData={data} />     
+        )           
     );
 };
 

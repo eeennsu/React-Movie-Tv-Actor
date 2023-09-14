@@ -6,13 +6,17 @@ import UpcomingMovies from '../features/moviesPage/UpcomingMovies/UpcomingMovies
 import PopularMovies from '../features/moviesPage/PopularMovies/PopularMovies';
 
 const MoviesPage: FC = () => {
-
+   
     return (
         <div className='space-y-20'>
             <LatestMovie />            
+
             <PopularMovies />
+
             <NowPlayingMovies />
+
             <UpcomingMovies />
+            
             <TopRatedMovies />            
         </div>
     );

@@ -20,9 +20,8 @@ module.exports = {
         }
       },
       screens: {
-        '3xs': '280px', 
         '2xs': '320px',
-        'xs': '430px',
+        'xs': '400px',
       },
       height: {
         58: '232px',
@@ -54,6 +53,6 @@ module.exports = {
         require('@tailwindcss/typography'), 
         //require('rippleui'), 
         require('@tailwindcss/forms'),
-    ],
+  ],
 }
 

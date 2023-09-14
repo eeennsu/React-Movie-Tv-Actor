@@ -7,6 +7,7 @@ const PersonsPage: FC = () => {
     return (
         <div className='space-y-20'>
             <HotPerson />
+            
             <PopularPersons />
         </div>
     );

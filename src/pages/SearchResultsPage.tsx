@@ -7,6 +7,7 @@ const SearchResultsPage: FC = () => {
     return (
         <div className='flex flex-col w-full'>      
             <ResultsHeader />
+            
             <ResultsBody />
         </div>
     );

@@ -12,6 +12,7 @@ const DetailPersonPage: FC = () => {
     return (
         <div className='flex flex-col space-y-10'>
             <PersonBox personData={data}/>
+            
             <KnownForMedias also_known_as={data?.also_known_as} />
         </div>
     );

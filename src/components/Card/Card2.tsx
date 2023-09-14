@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { LeastMovieInfo } from '../apis/types/movieTypes';
-import { getLImageUrl } from '../utils/utils';
-import { LeastTvInfo } from '../apis/types/tvTypes';
+import { LeastMovieInfo } from '../../apis/types/movieTypes';
+import { getLImageUrl } from '../../utils/utils';
+import { LeastTvInfo } from '../../apis/types/tvTypes';
 import { Tooltip } from 'antd';
 
 interface Props {
@@ -11,8 +11,8 @@ interface Props {
 }
 
 const Card2: FC<Props> = ({ movie, tv }) => {
-
-    const url = movie ? `movie/detail/${movie.id}` : tv ? `tv/detail/${tv.id}` : '';
+    
+    const url = movie ? `/movie/detail/${movie.id}` : tv ? `/tv/detail/${tv.id}` : '';
     const hasPoster_path = movie?.poster_path || tv?.poster_path;
 
     const handleTopToScroll = () => {

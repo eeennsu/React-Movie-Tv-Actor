@@ -1,10 +1,10 @@
 import type { FC } from 'react';
-import { LeastPersonInfo2List, DetailPerson, LeastPersonInfo2 } from '../../apis/types/personTypes';
+import { LeastPersonInfo2List, LeastPersonInfo2 } from '../../apis/types/personTypes';
 import { useEffect, useState } from 'react';
 import SubTitle from '../../components/SubTitle';
 import ListTemplate from '../../components/ListTemplate';
 import { CheckOutlined } from '@ant-design/icons';
-import AvatarCard from '../../components/AvatarCard';
+import AvatarCard from '../../components/Card/AvatarCard';
 
 interface Props {
     castsData?: LeastPersonInfo2List;

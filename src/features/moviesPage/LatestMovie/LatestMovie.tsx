@@ -1,13 +1,22 @@
 import type { FC } from 'react';
 import LatestContent from '../../../components/LatestContent';
 import usePopularMovies from '../../../hooks/movie/usePopularMovies';
+import LatestSkeleton from '../../../components/Skeleton/LatestSkeleton';
 
 const LatestMovie: FC = () => {
 
     const { data, error, isLoading } = usePopularMovies();
 
+    if (error) {
+        return (<div>error</div>)
+    }
+
     return (
-        <LatestContent movieData={data?.results[0]} />
+        isLoading ? (
+            <LatestSkeleton />
+        ) : (
+            <LatestContent movieData={data?.results[0]} />     
+        )        
     );
 };
 
