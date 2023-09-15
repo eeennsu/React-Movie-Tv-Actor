@@ -49,7 +49,7 @@ const AvatarCard: FC<Props> = ({ persons }) => {
                     <Card.Meta description={cardDesc} className='italic font-bold text-center line-clamp-3'/>
                 </Tooltip>
             </Card> 
-        </Link>      
+        </Link> 
     );
 };
 

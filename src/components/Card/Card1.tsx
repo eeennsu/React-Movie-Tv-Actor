@@ -6,13 +6,16 @@ import { Link }                 from 'react-router-dom';
 import { getLImageUrl }         from '../../utils/utils';
 import { Tooltip }              from 'antd';
 
-interface Props {
+type ItemType = LeastMovieInfo | LeastTvInfo | LeastPersonInfo2;
+
+interface Props<T> {
     movie?: LeastMovieInfo;
     tv?: LeastTvInfo;
     person?: LeastPersonInfo2;
+
 }
 
-const Card1: FC<Props> = ({ movie, tv, person }) => {
+const Card1: FC<Props<ItemType>> = ({ movie, tv, person }) => {
 
     const url = movie ? `/movie/detail/${movie.id}` : tv ? `/tv/detail/${tv.id}` : person ? `/person/detail/${person.id}` : '';
     const hasPoster_path = movie?.poster_path || tv?.poster_path || person?.profile_path;
