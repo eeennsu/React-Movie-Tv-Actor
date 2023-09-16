@@ -70,8 +70,9 @@ const Navbar: FC = () => {
                         <div className="hidden lg:flex lg:gap-2">
                             <button onClick={handleLoginModalOpen} className='block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700'>
                                 Login
-                            </button>          
-                            <button onClick={handleSignUpModalOpen} className="whitespace-nowrap rounded-md bg-slate-200 px-5 py-2.5 text-sm font-medium transition hover:bg-slate-300 ">
+                            </button>           
+                                 
+                            <button onClick={handleSignUpModalOpen} className="whitespace-nowrap hidden rounded-md bg-slate-200 px-5 py-2.5 text-sm font-medium  transition hover:bg-slate-300 ">
                                 Sign Up
                             </button>
                         </div>
