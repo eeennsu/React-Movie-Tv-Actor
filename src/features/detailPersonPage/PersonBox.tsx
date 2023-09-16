@@ -45,12 +45,12 @@ const PersonBox: FC<Props> = ({ personData }) => {
     // ];
 
     return ( 
-        <article className='flex flex-col mt-4 lg:flex-row '>
+        <article className='flex flex-col mt-4 sm:flex-row '>
             <div className='flex'>
                 <Image className='w-full h-full' src={personData && getLImageUrl(personData.profile_path)}/>
             </div>            
-            <div className='flex flex-col items-center w-full justify-evenly'>
-                <h1 className='text-6xl font-bold'>
+            <div className='flex flex-col items-center w-full mt-6 lg:mt-0 justify-evenly'>
+                <h1 className='text-3xl font-bold md:text-6xl'>
                     {personData?.name}  
                 </h1>
                 {
@@ -61,7 +61,10 @@ const PersonBox: FC<Props> = ({ personData }) => {
                             
                                 <div className='py-3 border-b border-b-amber-600'>birthday</div>
                                 <div className='py-3 border-b border-b-amber-600'>
-                                    <div className="badge badge-accent badge-outline">{birthday.format('YYYY - MM / DD')}</div>
+                                    <div className="hidden sm:block badge badge-accent badge-outline">{birthday.format('YYYY - MM / DD')}</div>
+                                    <div className='block sm:hidden'>
+                                        {birthday.format('YYYY - MM / DD')}
+                                    </div>
                                 </div>                      
                                 {
                                     personData?.deathday ? (

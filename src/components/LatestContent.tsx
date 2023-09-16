@@ -31,7 +31,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                         <h3 className='mt-5 text-white'>
                             {movieData?.release_date && (<span>개봉일 {movieData?.release_date}</span>)}
                             {
-                                tvData?.genres && (
+                                !!tvData?.genres.length && (
                                     <p>
                                         장르 - {tvData.genres.at(0)?.name}                        
                                     </p>                                
@@ -40,7 +40,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                             {
                                 tvData?.next_episode_to_air && (
                                     <p>
-                                        다음 방영일 - {tvData.next_episode_to_air}                        
+                                        다음 방영일 - {tvData.next_episode_to_air.air_date}                        
                                     </p>                                
                                 )
                             }

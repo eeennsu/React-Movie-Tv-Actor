@@ -1,5 +1,5 @@
 import type { FC, ChangeEvent } from 'react';
-import { useDeferredValue, useEffect, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { message } from 'antd';
 import useSearchSelectStore from '../../zustand/search/useSearchSelectStore';
 import { SelectType } from '../../zustand/search/types';
@@ -15,12 +15,6 @@ import { SearchPersonResponse } from '../../apis/types/personTypes';
 import useSearchAutoListStore from '../../zustand/search/useSearchAutoListStore';
 import { SearchOutlined } from '@ant-design/icons';
 
-const options: Array<{ value: SelectType; label: string; }> = [
-    { value: 'movie', label: 'Movie' },
-    { value: 'tv', label: 'TV' },
-    { value: 'person', label: 'People' },
-];
-
 const SearchField: FC = () => {
 
     const navigate = useNavigate();
@@ -29,7 +23,7 @@ const SearchField: FC = () => {
     const deferredText = useDeferredValue(text);
 
     const { select, setSelect, setFetchedSucSelect } = useSearchSelectStore();
-    const { setSearchKeyword, results, setResults } = useSerachResultStore();
+    const { setSearchKeyword, setResults } = useSerachResultStore();
     const { visible, setVisible } = useSearchAutoListStore();
 
     const { data: searchMovieData, isSuccess: isSucMovie } = useSearchMovie(deferredText, select);
@@ -88,6 +82,14 @@ const SearchField: FC = () => {
         navigate(`search/result/${select}`);
     }
 
+    const searchAutoCompleteList = useMemo(() => (
+        <SearchList 
+            movieResults={searchMovieData?.results} 
+            tvResults={searchTvData?.results}
+            personResults={searchPersonData?.results}
+        />
+    ), [searchMovieData?.results, searchTvData?.results, searchPersonData?.results]);
+
     // 검색 결과 페이지에서 select 타입이 바뀔 때마다 결과창의 헤더가 매번 바뀌는 것이 아닌, fetch가 성공했을 때만 변경되는 것이 자연스러으므로 세팅해준다.
     useEffect(() => {
         isSucMovie && setFetchedSucSelect('movie');
@@ -107,13 +109,6 @@ const SearchField: FC = () => {
                         <option value={'tv'}>TV</option>
                         <option value={'person'}>People</option>
                     </select>
-                    {/*input<Select 
-                        defaultValue={'movie'}
-                        options={options}                  
-                        value={select}                        
-                        onChange={handleSelectChange}      
-                           
-                    /> */}
                 </div>
                
                 <div className="relative w-full h-11">                 
@@ -135,12 +130,8 @@ const SearchField: FC = () => {
                     </span>
                 </div>                       
             </div>        
-            <div className='relative'>
-                <SearchList 
-                    movieResults={searchMovieData?.results} 
-                    tvResults={searchTvData?.results}
-                    personResults={searchPersonData?.results}
-                />
+            <div className='relative' >
+                {searchAutoCompleteList}
             </div>                    
         </div> 
     );

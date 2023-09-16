@@ -1,7 +1,7 @@
 import { Modal as AntdModal, ModalProps, message } from 'antd';
 import type { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import useSignUpModalStore from '../zustand/Modal/useSignUpModalStore';
+import useSignUpModalStore from '../zustand/modal/useSignUpModalStore';
 
 interface FormProps {
     email: string;
@@ -29,6 +29,8 @@ const SignUpModal: FC<ModalProps> = ({ open, onCancel, onOk }) => {
         }
         
         setIsSignUpModalOpen(false);
+
+        message.warning('회원가입 및 로그인은 미구현 상태입니다.');
     };
 
     return (

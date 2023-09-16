@@ -13,7 +13,7 @@ const PopularTvs: FC = () => {
         <article className='mt-5'>
             <Category>인기 방영작</Category>
             <Slider>
-            {
+                {
                     isLoading ? (
                         Array.from({ length: 5 }).map((_, i) => (
                             <MediaSkeleton key={i}/>

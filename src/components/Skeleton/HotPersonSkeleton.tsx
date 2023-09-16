@@ -1,11 +1,10 @@
 import type { FC } from 'react';
+import Skeleton from './Skeleton';
 
 const HotPersonSkeleton: FC = () => {
 
     return (
-        <div className='w-full'>
-
-        </div>
+        <Skeleton className='h-96 md:h-132 hero-content'/>
     );
 };
 
