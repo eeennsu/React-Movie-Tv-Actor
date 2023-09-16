@@ -15,7 +15,7 @@ const KnownForMedias: FC<Props> = ({ also_known_as }) => {
     return (
         <article className='p-2'>
             <Divider />
-            <SubTitle>Cast In Medias</SubTitle>
+            <SubTitle>Keywords</SubTitle>
             <ListTemplate isLast>
             {
                 !!also_known_as?.length && (

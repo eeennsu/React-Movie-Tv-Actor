@@ -60,7 +60,7 @@ const PersonBox: FC<Props> = ({ personData }) => {
                                 <div className='py-3 border-b border-b-amber-600'>{personData?.gender === 1 ? <WomanIcon /> : personData?.gender === 2 ? <ManIcon /> : <UnknownGenderIcon />}</div>
                             
                                 <div className='py-3 border-b border-b-amber-600'>birthday</div>
-                                <div className='py-3 border-b border-b-amber-600'>
+                                <div className='flex justify-center py-3 border-b border-b-amber-600'>
                                     <div className="hidden sm:block badge badge-accent badge-outline">{birthday.format('YYYY - MM / DD')}</div>
                                     <div className='block sm:hidden'>
                                         {birthday.format('YYYY - MM / DD')}
