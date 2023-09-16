@@ -10,8 +10,7 @@ interface Props {
 }
 
 const LatestContent: FC<Props> = ({ movieData, tvData }) => {
-    console.log('tvData', tvData);
-
+    
     return (
         <article className='relative flex flex-col w-full shadow-2xl h-96'>
             <div className='absolute w-full'>   

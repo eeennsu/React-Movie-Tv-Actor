@@ -10,8 +10,6 @@ interface Props {
 
 const KnownForMedias: FC<Props> = ({ also_known_as }) => {
 
-    console.log('also_known_as', also_known_as);
-
     return (
         <article className='p-2'>
             <Divider />
