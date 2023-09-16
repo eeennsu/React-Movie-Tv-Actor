@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { getLImageUrl } from '../utils/utils';
 import { DetailMovie } from '../apis/types/movieTypes';
 import { LatestTvInfo } from '../apis/types/tvTypes';
-//import { useState } from 'react';
 
 interface Props {
     movieData?: DetailMovie;
@@ -15,13 +14,15 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
         <article className='relative flex flex-col w-full shadow-2xl h-96'>
             <div className='absolute w-full'>   
                 <div className='h-96' >
-                    {
-                        (movieData?.backdrop_path || tvData?.backdrop_path) ? (
-                            <img src={getLImageUrl(movieData?.backdrop_path || tvData?.backdrop_path as string)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
+                    { 
+                        (tvData && tvData.backdrop_path) ? (
+                            <img src={getLImageUrl(tvData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
+                        ) : ( movieData && movieData.backdrop_path ) ? (
+                            <img src={getLImageUrl(movieData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
                         ) : (
-                            <img className='object-cover w-full h-full' src='/images/basic.jpg' alt="basic" />
+                            <img className='object-cover w-full h-full' src={`${process.env.PUBLIC_URL}/images/basic.jpg`} alt="basic" />
                         )
-                    }
+                    }                  
                 </div>                
             </div>            
             <div className='relative w-full h-full'>

@@ -16,7 +16,7 @@ const HotPerson: FC = () => {
             <HotPersonSkeleton />
         ) : (
             <article className='mt-0 text-black sm:mt-2 md:mt-5 hero' style={{ 
-                backgroundImage: `url('/images/movie_bg.jpg')`,
+                backgroundImage: `url('${process.env.PUBLIC_URL}/images/movie_bg.jpg')`,
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',        
                 backgroundSize: 'cover'

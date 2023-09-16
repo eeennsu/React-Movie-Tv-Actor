@@ -19,7 +19,7 @@ const InfiniteCard: FC<Props> = ({ person }) => {
                 <div className='relative max-w-xs overflow-hidden shadow-xl card-title h-80 rounded-xl'>
                     {
                         hasPoster_path ? (
-                            <img className='object-cover w-full h-full max-w-xs transition duration-200 ease-in-out hover:scale-105 rounded-xl' src={getLImageUrl(hasPoster_path as string)} alt={`poster`}/>
+                            <img className='object-cover w-full h-full max-w-xs transition duration-200 ease-in-out hover:scale-105 rounded-xl' src={getLImageUrl(hasPoster_path)} alt={`poster`}/>
                         ) : (
                             <img className='object-cover w-full h-full max-w-xs rounded-xl' src='/images/no_image.png' alt='no-data'/>
                         )

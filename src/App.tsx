@@ -9,12 +9,14 @@ import DetailPersonPage from './pages/DetailPersonPage';
 import PersonsPage from './pages/PersonsPage';
 import { ErrorBoundary } from 'react-error-boundary';
 import NotFound from './pages/Error/NotFound';
+import AutoScrollToTop from './hooks/commons/AutoScrollToTop';
 
 function App() {
     
     return (
         <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => { console.log('err', err); console.log('info', info) }}>            
             <HashRouter>
+                <AutoScrollToTop />
                 <Routes>         
                     <Route path='/' element={<Index />} >
                         <Route index element={<MoviesPage />} />                  {/* 기본 홈페이지 = 영화 페이지*/}

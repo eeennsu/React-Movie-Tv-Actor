@@ -12,7 +12,6 @@ interface Props<T> {
     movie?: LeastMovieInfo;
     tv?: LeastTvInfo;
     person?: LeastPersonInfo2;
-
 }
 
 const Card1: FC<Props<ItemType>> = ({ movie, tv, person }) => {
@@ -30,7 +29,7 @@ const Card1: FC<Props<ItemType>> = ({ movie, tv, person }) => {
                         ) : (
                             <img className='object-cover w-full h-full max-w-xs rounded-xl' src='/images/no_image.png' alt='no-data'/>
                         )
-                    }
+                    }                   
                 </div>
                 <Tooltip placement='top' title={movie?.title || tv?.name || person?.name}>
                     <div className='my-1 text-sm italic text-center line-clamp-1 md:text-lg'>

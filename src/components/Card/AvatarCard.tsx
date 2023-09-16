@@ -18,7 +18,7 @@ const AvatarCard: FC<Props> = ({ persons }) => {
     const cardCover = () => {
         if (nonePath) {            
             return (
-                <img src='/images/no_avatar.png' className='object-contain w-full h-full p-5' alt='profile' style={{ minHeight: 291 }} />
+                <img src={`${process.env.PUBLIC_URL}/images/no_avatar.png`} className='object-contain w-full h-full p-5' alt='profile' style={{ minHeight: 291 }} />
             );
         }
         
