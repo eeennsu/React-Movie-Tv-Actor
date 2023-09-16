@@ -19,8 +19,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "moduleDetection": "force",
-    "types": ["vite/client"],
+    "moduleDetection": "force"
   },
   "include": [
     "src"
