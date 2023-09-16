@@ -16,7 +16,8 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
         <article className='relative flex flex-col w-full shadow-2xl h-96'>
             <div className='absolute w-full'>   
                 <div className='h-96' >
-                    {(movieData?.backdrop_path || tvData?.backdrop_path) ? (
+                    {
+                        (movieData?.backdrop_path || tvData?.backdrop_path) ? (
                             <img src={getLImageUrl(movieData?.backdrop_path || tvData?.backdrop_path as string)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
                         ) : (
                             <img className='object-cover w-full h-full' src='/images/basic.jpg' alt="basic" />

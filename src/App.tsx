@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Index from './pages/layouts/Index';
 import MoviesPage from './pages/MoviesPage';
 import TvsPage from './pages/TvsPage';
@@ -14,7 +14,7 @@ function App() {
     
     return (
         <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => { console.log('err', err); console.log('info', info) }}>            
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <HashRouter basename={process.env.PUBLIC_URL}>
                 <Routes>         
                     <Route path='/' element={<Index />} >
                         <Route index element={<MoviesPage />} />                  {/* 기본 홈페이지 = 영화 페이지*/}
@@ -34,7 +34,7 @@ function App() {
                     </Route>           
                     <Route path="/*" element={<NotFound />} />                     
                 </Routes>
-            </BrowserRouter>               
+            </HashRouter>               
         </ErrorBoundary>       
     );
 }

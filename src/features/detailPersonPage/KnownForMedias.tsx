@@ -17,17 +17,17 @@ const KnownForMedias: FC<Props> = ({ also_known_as }) => {
             <Divider />
             <SubTitle>Keywords</SubTitle>
             <ListTemplate isLast>
-            {
-                !!also_known_as?.length && (
-                    also_known_as.map(media => (
-                        <div className='p-2 my-4 border-b-2 ps-0 border-neutral'>
-                            <span className='mr-2 dot dot-primary'>
-                                {media}
-                            </span>                            
-                        </div>
-                    ))
-                )
-            }
+                {
+                    !!also_known_as?.length && (
+                        also_known_as.map(media => (
+                            <div className='p-2 my-4 border-b-2 ps-0 border-neutral'>
+                                <span className='mr-2 dot dot-primary'>
+                                    {media}
+                                </span>                            
+                            </div>
+                        ))
+                    )
+                }
             </ListTemplate>        
         </article>       
     )
