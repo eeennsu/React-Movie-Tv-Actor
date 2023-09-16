@@ -1,7 +1,7 @@
 {
   "name": "my-movie-app",
   "version": "0.1.0",
-  "homepage": "https://eeennsu.github.io/react-movie-tv-actor",
+  "homepage": "https://eeennsu.github.io",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
