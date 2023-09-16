@@ -9,37 +9,28 @@ import Actors from '../features/detailMoviePage/Actors';
 import SimilarMovies from '../features/detailMoviePage/SimilarMovies';
 import useKeywordsMovie from '../hooks/movie/useKeywordsMovie';
 import useActors from '../hooks/movie/useActors';
-import { useIsFetching } from '@tanstack/react-query';
-import { Spin } from 'antd';
 
 const DetailMoviePage: FC = () => {
 
     const { id } = useParams();
-    const { data: movieData } = useDetailMovie(id as string);
+    const { data: movieData  } = useDetailMovie(id as string);
     const { data: similarDatas } = useSimilarMovie(id as string);
     const { data: keywordsData } = useKeywordsMovie(id as string);
     const { data: actorsData } = useActors(id as string);
-    const isLoading = useIsFetching();
 
     return (
-        isLoading ? (
-            <div className='flex items-center justify-center h-132'>
-                <Spin size='large'/>         
-            </div>  
-        ) : (
-            <div>
-                <MovieBackdrop backdrop_path={movieData?.backdrop_path} />
+        <div className='flex flex-col'>
+            <MovieBackdrop backdrop_path={movieData?.backdrop_path} />
 
-                <MainMovieInfo movieData={movieData} />          
-                    
-                <DetailInfo movieData={movieData} keywordsData={keywordsData?.keywords} />
-
-                <Actors actorsData={actorsData} />
+            <MainMovieInfo movieData={movieData}  />          
                 
-                <SimilarMovies similarDatas={similarDatas} />                      
-            </div>        
-        )
-    );  
+            <DetailInfo movieData={movieData} keywordsData={keywordsData?.keywords}/>
+     
+            <Actors actorsData={actorsData} />
+               
+            <SimilarMovies similarDatas={similarDatas}/>
+        </div>
+    );
 };
 
 export default DetailMoviePage;

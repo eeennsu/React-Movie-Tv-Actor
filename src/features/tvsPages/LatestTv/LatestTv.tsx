@@ -13,7 +13,7 @@ const LatestTv: FC = () => {
             <LatestSkeleton />
         ) : (
             <LatestContent tvData={data} />     
-        )               
+        )           
     );
 };
 

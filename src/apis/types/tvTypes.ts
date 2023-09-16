@@ -3,9 +3,7 @@ import { Genre, Keyword } from './commonTypes';
 export interface LatestTvInfo {
     backdrop_path: string;
     genres: Genre[];
-    next_episode_to_air: {
-        air_date: string;
-    };
+    next_episode_to_air: string;
     name: string;
 }
 

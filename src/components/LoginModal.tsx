@@ -1,8 +1,8 @@
-import { Modal as AntdModal, ModalProps, message } from 'antd';
+import { Modal as AntdModal, ModalProps } from 'antd';
 import type { FC } from 'react';
-import useLoginStore from '../zustand/login/useUserLoginStore';
+import useLoginStore from '../zustand/UserLogin/useUserLoginStore';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import useLoginModalStore from '../zustand/modal/useLoginModalStore';
+import useLoginModalStore from '../zustand/Modal/useLoginModalStore';
 
 interface FormProps {
     email: string;
@@ -18,11 +18,10 @@ const LoginModal: FC<ModalProps> = () => {
     const onSubmit: SubmitHandler<FormProps> = ({ email, password }) => {
         
         // 로그인 체크는 생략
-
-        // 로그인이 확인되면 login 상태를 true로 설정해줘야 함
-        // setIsLogin(true);
+        
+        
+        setIsLogin(true);
         setIsLoginModalOpen(false);
-        message.warning('회원가입 및 로그인은 미구현 상태입니다.');
     };
 
     return (

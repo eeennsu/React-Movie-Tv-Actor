@@ -16,7 +16,7 @@ const PopularPersons: FC = () => {
             <ListTemplate isLast>
                 {
                     isLoading ? (
-                        Array.from({ length: 20 }).map((_, i) => (
+                        Array.from({ length: 10 }).map((_, i) => (
                             <AvatarSkeleton key={i} />
                         ))
                     ) : (

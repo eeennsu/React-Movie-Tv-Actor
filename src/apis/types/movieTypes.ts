@@ -1,4 +1,5 @@
 import { Genre, Keyword } from './commonTypes';
+import { DetailTv } from './tvTypes';
 
 export interface SpokenLanguage {
     english_name: string;

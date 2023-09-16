@@ -26,7 +26,7 @@ const PopularPersonsItem: FC<Props> = ({ person, index, fetchMore, isLastItem, i
 
     return (
         <Link to={`detail/${person.id}`} className='block mx-2 no-underline' ref={itemRef}>
-            <div className='relative max-w-xs overflow-hidden shadow-2xl card-title h-80 2xs:h-52 xs:h-72 sm:h-86 lg:h-88 xl:h-72 rounded-xl'>
+            <div className='relative max-w-xs overflow-hidden shadow-2xl card-title h-72 xs:h-90 sm:h-82 md:h-86 lg:h-76 rounded-xl'>
                 {
                     person?.profile_path ? (
                         <img className='object-cover w-full h-full max-w-xs transition duration-200 ease-in-out hover:scale-105 rounded-xl' src={person?.profile_path && getLImageUrl(person.profile_path as string)} alt={`poster`}/>

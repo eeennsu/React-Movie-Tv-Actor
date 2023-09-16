@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { useParams } from 'react-router-dom';
 import Divider from '../../components/Divider';
 import useSearchSelectStore from '../../zustand/search/useSearchSelectStore';
 
@@ -8,7 +9,7 @@ const ResultsHeader: FC = () => {
 
     return (
         <div>
-            <div className='flex flex-col w-full mt-2 text-3xl text-center md:mt-6 md:text-left'>
+            <div className='flex flex-col w-full mt-10 prose'>
                 <h1>
                     {fetchedSucSelect === 'movie' ? 'Movies' : (
                         fetchedSucSelect === 'tv' ? 'Tv Programs' : 

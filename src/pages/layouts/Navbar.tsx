@@ -8,8 +8,8 @@ import MainNavLink from '../../components/MainNavLink';
 import Drawer from '../../components/Drawer';
 import LoginModal from '../../components/LoginModal';
 import SignUpModal from '../../components/SignUpModal';
-import useLoginModalState from '../../zustand/modal/useLoginModalStore';
-import useSignUpModalStore from '../../zustand/modal/useSignUpModalStore';
+import useLoginModalState from '../../zustand/Modal/useLoginModalStore';
+import useSignUpModalStore from '../../zustand/Modal/useSignUpModalStore';
 
 const Navbar: FC = () => {
 

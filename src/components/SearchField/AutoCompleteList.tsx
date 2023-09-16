@@ -17,10 +17,10 @@ const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults })
     const { select } = useSearchSelectStore();
     const { visible } = useSearchAutoListStore();
     
-    const _className = (visible ? 'opacity-100' : 'opacity-0');
+    const _className = (visible ? 'opacity-100' : 'opacity-0 ').concat(' ');
 
     return (
-        <div className={`${_className} absolute z-10 overflow-y-auto shadow-md w-60 max-h-56 md:max-h-72 left-24 transition-opacity duration-300 ease-in-out`}>
+        <div className={`${_className}absolute z-10 overflow-y-auto shadow-md w-60 max-h-72 left-24 transition-opacity duration-300 ease-in-out`}>
             <ul className='p-0 m-0 text-black list-none rounded bg-gray-200/80 top-16' >
                 { 
                     select === 'movie' ? (
