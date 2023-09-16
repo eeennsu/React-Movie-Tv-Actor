@@ -14,7 +14,7 @@ function App() {
     
     return (
         <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => { console.log('err', err); console.log('info', info) }}>            
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>         
                     <Route path='/' element={<Index />} >
                         <Route index element={<MoviesPage />} />                  {/* 기본 홈페이지 = 영화 페이지*/}
@@ -32,7 +32,7 @@ function App() {
                     
                         <Route path='/search/result/:select' element={<SearchResultsPage />} />   
                     </Route>           
-                    {/* <Route path="/*" element={<NotFound />} />                      */}
+                    <Route path="/*" element={<NotFound />} />                     
                 </Routes>
             </BrowserRouter>               
         </ErrorBoundary>       
