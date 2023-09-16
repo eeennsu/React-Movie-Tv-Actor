@@ -1,7 +1,6 @@
 {
   "name": "my-movie-app",
   "version": "0.1.0",
-  "homepage": "https://eeennsu.github.io/react-movie-tv-actor",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
@@ -32,8 +31,6 @@
     "zustand": "^4.4.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
