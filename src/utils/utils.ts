@@ -1,12 +1,14 @@
+import env from '../env';
+
 // 포스터 & 백그라운드 이미지 url 사이즈별 얻어오는 경로
-export const getXSImageUrl = (path: string) => `${process.env.REACT_APP_TMDB_IMAGE_HOST}/w200${path}`;
-export const getSImageUrl = (path: string) => `${process.env.REACT_APP_TMDB_IMAGE_HOST}/w300${path}`;
-export const getMImageUrl = (path: string) => `${process.env.REACT_APP_TMDB_IMAGE_HOST}/w400${path}`;
-export const getLImageUrl = (path: string) => `${process.env.REACT_APP_TMDB_IMAGE_HOST}/w500${path}`;
+export const getXSImageUrl = (path: string) => `${env.VITE_TMDB_IMAGE_HOST}/w200${path}`;
+export const getSImageUrl = (path: string) => `${env.VITE_TMDB_IMAGE_HOST}/w300${path}`;
+export const getMImageUrl = (path: string) => `${env.VITE_TMDB_IMAGE_HOST}/w400${path}`;
+export const getLImageUrl = (path: string) => `${env.VITE_TMDB_IMAGE_HOST}/w500${path}`;
 
 // 사람 포스터 이미지 url
 export const getPersonImageUrl = (personId: string) =>
-    `${process.env.REACT_APP_TMDB_API_HOST}/${process.env.REACT_APP_TMDB_API_VERSION}/person/${personId}/images`;
+    `${env.VITE_TMDB_API_HOST}/${env.VITE_TMDB_API_VERSION}/person/${personId}/images`;
 
 
 // 소수 둘째자리 반올림

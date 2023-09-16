@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { getLImageUrl } from '../utils/utils';
 import { DetailMovie } from '../apis/types/movieTypes';
 import { LatestTvInfo } from '../apis/types/tvTypes';
-//import { useState } from 'react';
 
 interface Props {
     movieData?: DetailMovie;
@@ -10,7 +9,6 @@ interface Props {
 }
 
 const LatestContent: FC<Props> = ({ movieData, tvData }) => {
-    console.log('tvData', tvData);
 
     return (
         <article className='relative flex flex-col w-full shadow-2xl h-96'>
