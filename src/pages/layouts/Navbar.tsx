@@ -11,6 +11,7 @@ import SignUpModal from '../../components/SignUpModal';
 import useLoginModalState from '../../zustand/modal/useLoginModalStore';
 import useSignUpModalStore from '../../zustand/modal/useSignUpModalStore';
 
+
 const Navbar: FC = () => {
 
     const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
