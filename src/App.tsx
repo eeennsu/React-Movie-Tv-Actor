@@ -32,7 +32,7 @@ function App() {
                     
                         <Route path='/search/result/:select' element={<SearchResultsPage />} />   
                     </Route>           
-                    <Route path="/*" element={<NotFound />} />                     
+                    {/* <Route path="/*" element={<NotFound />} />                      */}
                 </Routes>
             </BrowserRouter>               
         </ErrorBoundary>       
