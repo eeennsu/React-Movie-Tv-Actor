@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import useDetailTv from '../hooks/tv/useDetailTv';
-import { useEffect } from 'react';
 import TvBackdrop from '../features/detailTvPage/TvBackdrop';
 import Casts from '../features/detailTvPage/Casts';
 import DetailTvInfo from '../features/detailTvPage/DetailTvInfo';

@@ -1,10 +1,11 @@
 import type { FC } from 'react';
 import { LeastPersonInfo2, LeastPersonInfo2List } from '../../apis/types/personTypes';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SubTitle from '../../components/SubTitle';
 import ListTemplate from '../../components/ListTemplate';
 import { CheckOutlined } from '@ant-design/icons';
 import AvatarCard from '../../components/Card/AvatarCard';
+import useGetMoreCasts from '../../hooks/commons/useGetMoreCasts';
 
 interface Props {
     actorsData?: LeastPersonInfo2List;
@@ -21,11 +22,7 @@ const Actors: FC<Props> = ({ actorsData }) => {
 
     const isfull = actors.length >= (actorsData?.cast.length as number);
 
-    useEffect(() => {
-        if (actorsData) {
-            setActors(actorsData.cast.slice(0, visibleCount));
-        }
-    }, [actorsData, visibleCount]);
+    useGetMoreCasts(actorsData, visibleCount, setActors);
 
     return (
         <article>            

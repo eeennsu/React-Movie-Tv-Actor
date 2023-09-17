@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import Index from './pages/layouts/Index';
 import MoviesPage from './pages/MoviesPage';
 import TvsPage from './pages/TvsPage';
@@ -14,7 +14,7 @@ import AutoScrollToTop from './hooks/commons/AutoScrollToTop';
 function App() {
     
     return (
-        <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => { console.log('err', err); console.log('info', info) }}>            
+        <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => console.log('err', err)}>            
             <HashRouter>
                 <AutoScrollToTop />
                 <Routes>         

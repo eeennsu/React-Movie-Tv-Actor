@@ -22,6 +22,8 @@ const PopularPersonsItem: FC<Props> = ({ person, index, fetchMore, isLastItem, i
 
     useEffect(() => {
         isLastItem && isIntersecting && fetchMore();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isLastItem, isIntersecting]);
 
     return (

@@ -2,7 +2,7 @@ import type { FC, ChangeEvent } from 'react';
 import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { message } from 'antd';
 import useSearchSelectStore from '../../zustand/search/useSearchSelectStore';
-import { SelectType } from '../../zustand/search/types';
+import { SelectStoreType, SelectType } from '../../zustand/search/types';
 import useSearchMovie from '../../hooks/movie/useSearchMovie';
 import useSearchTv from '../../hooks/tv/useSearchTv';
 import useSearchPerson from '../../hooks/people/useSearchPerson';
@@ -91,11 +91,7 @@ const SearchField: FC = () => {
     ), [searchMovieData?.results, searchTvData?.results, searchPersonData?.results]);
 
     // 검색 결과 페이지에서 select 타입이 바뀔 때마다 결과창의 헤더가 매번 바뀌는 것이 아닌, fetch가 성공했을 때만 변경되는 것이 자연스러으므로 세팅해준다.
-    useEffect(() => {
-        isSucMovie && setFetchedSucSelect('movie');
-        isSucTv && setFetchedSucSelect('tv');
-        isSucPerson && setFetchedSucSelect('person');
-    }, [isSucMovie, isSucTv, isSucPerson, setFetchedSucSelect]);
+    useIsFetchSucSelectUpdate(isSucMovie, isSucTv, isSucPerson, setFetchedSucSelect);
 
     // 검색 입력창이 바뀔 때마다 fetch 되온 결과를 zustand result state에 select type에 따라 알맞게 세팅해준다.
     useEffect(resultSetting, [setSearchKeyword, setResults, select, searchMovieData, searchTvData, searchPersonData]);
@@ -138,3 +134,17 @@ const SearchField: FC = () => {
 };
 
 export default SearchField;
+
+
+// useEffect custom hook 
+
+const useIsFetchSucSelectUpdate = (isSucMovie: boolean, isSucTv: boolean, isSucPerson: boolean, setFetchedSucSelect: SelectStoreType['setFetchedSucSelect']) => {
+    
+    useEffect(() => {
+        isSucMovie && setFetchedSucSelect('movie');
+        isSucTv && setFetchedSucSelect('tv');
+        isSucPerson && setFetchedSucSelect('person');
+    }, [isSucMovie, isSucTv, isSucPerson, setFetchedSucSelect]);
+
+    return null;
+}
