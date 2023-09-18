@@ -1,4 +1,4 @@
-import { Genre, Keyword } from './commonTypes';
+import { Genre, Keyword, Language, ProductionCountry } from './commonTypes';
 
 export interface LatestTvInfo {
     backdrop_path: string;
@@ -18,7 +18,7 @@ export interface LeastTvInfo {
 
 export interface DetailTv extends LeastTvInfo {
     genres: Genre[];
-    hompage: string;
+    homepage: string;
     first_air_date: string;
     in_production: boolean;
     last_air_date: string;
@@ -32,6 +32,8 @@ export interface DetailTv extends LeastTvInfo {
     vote_count: number;
     type: string;
     backdrop_path: string;
+    spoken_languages: Language[];
+    production_countries: ProductionCountry[];
 }
 
 export interface TvListResponse {

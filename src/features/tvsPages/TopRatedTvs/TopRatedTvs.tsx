@@ -7,7 +7,7 @@ import MediaSkeleton from '../../../components/Skeleton/MediaSkeleton';
 
 const TopRatedTv: FC = () => {
 
-    const { data, isLoading, error } = useTopRatedTvs();
+    const { data, isLoading } = useTopRatedTvs();
 
     return (
         <article className='mt-5'>

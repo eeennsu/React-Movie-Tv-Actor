@@ -8,7 +8,7 @@ interface Props {
 const MovieBackdrop: FC<Props> = ({ backdrop_path }) => {
 
     return (
-        <article className='flex items-center justify-center mt-10 h-52'>
+        <article className='items-center justify-center hidden mt-10 lg:flex h-52'>
             <div className='flex items-end justify-center h-full' style={{ 
                 backgroundImage: `url(${backdrop_path && getLImageUrl(backdrop_path as string)})`,
                 backgroundPosition: 'center center',

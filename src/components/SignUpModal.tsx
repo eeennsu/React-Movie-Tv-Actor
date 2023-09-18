@@ -1,7 +1,9 @@
-import { Modal as AntdModal, ModalProps, message } from 'antd';
+import { Modal as AntdModal, message } from 'antd';
 import type { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import useSignUpModalStore from '../zustand/modal/useSignUpModalStore';
+import useLoginModalStore from '../zustand/modal/useLoginModalStore';
+import { LoginOutlined } from '@ant-design/icons';
 
 interface FormProps {
     email: string;
@@ -9,9 +11,10 @@ interface FormProps {
     confirmPassword: string;
 }
 
-const SignUpModal: FC<ModalProps> = ({ open, onCancel, onOk }) => {
+const SignUpModal: FC= () => {
 
-    const { setIsSignUpModalOpen } = useSignUpModalStore();
+    const { isSignUpModalOpen, setIsSignUpModalOpen } = useSignUpModalStore();
+    const { setIsLoginModalOpen } = useLoginModalStore();
     
     const { register, handleSubmit } = useForm<FormProps>();
     const onSubmit: SubmitHandler<FormProps> = ({ email, password, confirmPassword }) => {
@@ -33,8 +36,13 @@ const SignUpModal: FC<ModalProps> = ({ open, onCancel, onOk }) => {
         message.warning('회원가입 및 로그인은 미구현 상태입니다.');
     };
 
+    const handleLoginModal = () => {
+        setIsSignUpModalOpen(false);
+        setIsLoginModalOpen(true);
+    }
+
     return (
-        <AntdModal footer={null} centered open={open} onCancel={onCancel} onOk={onOk}> 
+        <AntdModal footer={null} centered open={isSignUpModalOpen} onCancel={() => setIsSignUpModalOpen(false)}> 
             <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-lg mx-auto">
                     <h1 className="text-2xl font-bold text-center text-indigo-500 sm:text-3xl">
@@ -69,6 +77,11 @@ const SignUpModal: FC<ModalProps> = ({ open, onCancel, onOk }) => {
                             Sign Up
                         </button>                                   
                     </form>
+                </div>
+                <div className='flex justify-center mt-4'>
+                    <button className='py-3 text-sm font-medium text-indigo-600 transition bg-white border-2 border-indigo-600 hover:text-white rounded-2xl px-7 hover:bg-indigo-700 active:bg-indigo-800' onClick={handleLoginModal}>
+                        Login <LoginOutlined />
+                    </button>
                 </div>
             </div> 
         </AntdModal>

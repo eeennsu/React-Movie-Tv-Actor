@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import { DetailPerson } from '../../apis/types/personTypes';
 import SubTitle from '../../components/SubTitle';
 import ListTemplate from '../../components/ListTemplate';
 import Divider from '../../components/Divider';

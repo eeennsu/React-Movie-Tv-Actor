@@ -7,7 +7,7 @@ import MediaSkeleton from '../../../components/Skeleton/MediaSkeleton';
 
 const TopRatedMovies: FC = () => {
 
-    const { data, error, isLoading } = useTopRatedMovies();
+    const { data, isLoading } = useTopRatedMovies();
 
     return (
         <article>

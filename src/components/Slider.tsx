@@ -1,4 +1,4 @@
-import { useRef, type FC, type PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import SlickSlider, { Settings } from 'react-slick';
 import ArrowButton from './ArrowButton';
 

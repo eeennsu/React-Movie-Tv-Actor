@@ -3,39 +3,55 @@ import { Drawer as AntdDrawer } from 'antd';
 import MainTitle from './MainTitle';
 import SideNavLink from './SideNavLink';
 import SearchField from './SearchField/SearchField';
+import useDrawerStore from '../zustand/drawer/useDrawerStore';
+import useLoginModalStore from '../zustand/modal/useLoginModalStore';
+import useSignUpModalStore from '../zustand/modal/useSignUpModalStore';
 
-interface Props {
-    open: boolean;
-    onClose: () => void; 
-    handleLoginModalOpen: () => void;
-    handleSignUpModalOpen: () => void;
-}
+const Drawer: FC = () => {
 
-const Drawer: FC<Props> = ({ open, onClose, handleLoginModalOpen, handleSignUpModalOpen }) => {
+    const { isDrawerOpen ,setIsDrawerOpen } = useDrawerStore();
+    const { setIsLoginModalOpen } = useLoginModalStore();
+    const { setIsSignUpModalOpen } = useSignUpModalStore();
+
+    const handleClose = () => {
+        setIsDrawerOpen(false);
+    }
+
+    const handleLoginModal = () => {
+        setIsDrawerOpen(false);
+        setIsLoginModalOpen(true);
+    }
+
+    const handleSignUpModal = () => {
+        setIsDrawerOpen(false);
+        setIsSignUpModalOpen(true);
+    }
 
     return (
-        <AntdDrawer title={<MainTitle />} placement='right' onClose={onClose} open={open}>            
+        <AntdDrawer title={<MainTitle />} placement='right' onClose={handleClose} open={isDrawerOpen}>            
             <div className='flex items-center mt-2 mb-10 justify-evenly'>
-                <button onClick={handleLoginModalOpen} className="px-8 py-3 font-semibold text-white transition bg-teal-600 rounded-full hover:bg-teal-700 dark:bg-gray-100 dark:text-gray-800">
+                <button onClick={handleLoginModal} className="px-8 py-3 font-semibold text-white transition bg-teal-600 rounded-full hover:bg-teal-700">
                     Login
                 </button>
-                <button onClick={handleSignUpModalOpen} className="px-8 py-3 font-semibold transition rounded-full hover:bg-slate-300 bg-slate-200 dark:bg-gray-100 dark:text-gray-800">
+                <button onClick={handleSignUpModal} className="px-8 py-3 font-semibold transition rounded-full hover:bg-slate-300 bg-slate-200 dark:bg-gray-100">
                     Sign Up
                 </button>
-            </div>           
+            </div> 
+
             <ul className='flex flex-col text-lg font-semibold gap-y-4'>
-                <li className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='/' >Movie</SideNavLink>
+                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                    <SideNavLink to='/'>Movie</SideNavLink>
                 </li>
-                <li className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='tv'>TV</SideNavLink>
+                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                    <SideNavLink to='/tv'>TV</SideNavLink>
                 </li>
-                <li className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='person'>Person</SideNavLink>
+                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                    <SideNavLink to='/person'>People</SideNavLink>
                 </li>              
-            </ul>          
+            </ul>     
+                 
             <div className='mt-12'>
-                <SearchField />
+                <SearchField isDrawer />
             </div>                                     
         </AntdDrawer>   
     );

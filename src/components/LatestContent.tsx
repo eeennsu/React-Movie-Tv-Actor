@@ -11,28 +11,26 @@ interface Props {
 const LatestContent: FC<Props> = ({ movieData, tvData }) => {
     
     return (
-        <article className='relative flex flex-col w-full shadow-2xl h-96'>
-            <div className='absolute w-full'>   
-                <div className='h-96' >
-                    { 
-                        (tvData && tvData.backdrop_path) ? (
-                            <img src={getLImageUrl(tvData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
-                        ) : ( movieData && movieData.backdrop_path ) ? (
-                            <img src={getLImageUrl(movieData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
-                        ) : (
-                            <img className='object-cover w-full h-full' src={`${process.env.PUBLIC_URL}/images/basic.jpg`} alt="basic" />
-                        )
-                    }                  
-                </div>                
+        <article className='relative flex flex-col w-full shadow-2xl h-96 rounded-2xl'>
+            <div className='absolute w-full h-96'>   
+                { 
+                    (tvData && tvData.backdrop_path) ? (
+                        <img src={getLImageUrl(tvData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
+                    ) : ( movieData && movieData.backdrop_path ) ? (
+                        <img src={getLImageUrl(movieData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
+                    ) : (
+                        <img className='object-cover w-full h-full rounded-2xl' src={`${process.env.PUBLIC_URL}/images/basic.jpg`} alt="basic" />
+                    )
+                }                      
             </div>            
-            <div className='relative w-full h-full'>
+            <div className='relative w-full h-full rounded-2xl'>
                 <div className='absolute bottom-0 left-0 flex w-full bg-gradient-to-t from-black to-transparent rounded-2xl'>
-                    <div className='flex flex-col items-center w-full p-4 font-bold md:items-start'>
-                        <h1 className='text-6xl font-bold text-white '>
+                    <div className='flex flex-col w-full p-4 font-bold rounded-2xl'>
+                        <h1 className='text-3xl italic font-bold text-white md:text-6xl '>
                             {movieData?.title || tvData?.name}
                         </h1>
                         <h3 className='mt-5 text-white'>
-                            {movieData?.release_date && (<span>개봉일 {movieData?.release_date}</span>)}
+                            {movieData?.release_date && (<p>개봉일 - {movieData?.release_date}</p>)}
                             {
                                 !!tvData?.genres.length && (
                                     <p>

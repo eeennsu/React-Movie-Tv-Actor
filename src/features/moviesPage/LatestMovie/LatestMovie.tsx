@@ -15,7 +15,7 @@ const LatestMovie: FC = () => {
         isLoading ? (
             <LatestSkeleton />
         ) : (
-            <LatestContent movieData={data?.results[0]} />     
+            <LatestContent movieData={data?.results?.at(0)} />     
         )        
     );
 };

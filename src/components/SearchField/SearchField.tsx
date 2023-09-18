@@ -1,5 +1,5 @@
 import type { FC, ChangeEvent } from 'react';
-import { useDeferredValue, useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useEffect, useState } from 'react';
 import { message } from 'antd';
 import useSearchSelectStore from '../../zustand/search/useSearchSelectStore';
 import { SelectStoreType, SelectType } from '../../zustand/search/types';
@@ -14,8 +14,13 @@ import { SearchTvResponse } from '../../apis/types/tvTypes';
 import { SearchPersonResponse } from '../../apis/types/personTypes';
 import useSearchAutoListStore from '../../zustand/search/useSearchAutoListStore';
 import { SearchOutlined } from '@ant-design/icons';
+import useDrawerStore from '../../zustand/drawer/useDrawerStore';
 
-const SearchField: FC = () => {
+interface Props {
+    isDrawer?: boolean;
+}
+
+const SearchField: FC<Props> = ({ isDrawer }) => {
 
     const navigate = useNavigate();
      
@@ -25,6 +30,7 @@ const SearchField: FC = () => {
     const { select, setSelect, setFetchedSucSelect } = useSearchSelectStore();
     const { setSearchKeyword, setResults } = useSerachResultStore();
     const { visible, setVisible } = useSearchAutoListStore();
+    const { isDrawerOpen, setIsDrawerOpen } = useDrawerStore();
 
     const { data: searchMovieData, isSuccess: isSucMovie } = useSearchMovie(deferredText, select);
     const { data: searchTvData, isSuccess: isSucTv } = useSearchTv(deferredText, select);
@@ -80,15 +86,10 @@ const SearchField: FC = () => {
         resultSetting();
         
         navigate(`search/result/${select}`);
-    }
 
-    const searchAutoCompleteList = useMemo(() => (
-        <SearchList 
-            movieResults={searchMovieData?.results} 
-            tvResults={searchTvData?.results}
-            personResults={searchPersonData?.results}
-        />
-    ), [searchMovieData?.results, searchTvData?.results, searchPersonData?.results]);
+        // 만약 모바일이면, drawer메뉴가 계속 열려있으므로 닫아주기
+        isDrawerOpen && setIsDrawerOpen(false);
+    }
 
     // 검색 결과 페이지에서 select 타입이 바뀔 때마다 결과창의 헤더가 매번 바뀌는 것이 아닌, fetch가 성공했을 때만 변경되는 것이 자연스러으므로 세팅해준다.
     useIsFetchSucSelectUpdate(isSucMovie, isSucTv, isSucPerson, setFetchedSucSelect);
@@ -97,7 +98,7 @@ const SearchField: FC = () => {
     useEffect(resultSetting, [setSearchKeyword, setResults, select, searchMovieData, searchTvData, searchPersonData]);
 
     return (
-        <div>
+        <>
             <div className='flex items-center'>
                 <div className='w-36 h-11'>
                     <select value={select} onChange={handleSelectChange} className="w-full h-full text-sm text-gray-700 border-gray-300 rounded-l-lg">
@@ -127,9 +128,14 @@ const SearchField: FC = () => {
                 </div>                       
             </div>        
             <div className='relative' >
-                {searchAutoCompleteList}
+                <SearchList 
+                    movieResults={searchMovieData?.results} 
+                    tvResults={searchTvData?.results}
+                    personResults={searchPersonData?.results}
+                    isDrawer={isDrawer}                
+                />
             </div>                    
-        </div> 
+        </> 
     );
 };
 

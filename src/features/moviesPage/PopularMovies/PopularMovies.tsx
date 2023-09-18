@@ -7,7 +7,7 @@ import MediaSkeleton from '../../../components/Skeleton/MediaSkeleton';
 
 const PopularMovies: FC = () => {
 
-    const { data, error, isLoading } = usePopularMovie();
+    const { data, isLoading } = usePopularMovie();
 
     return (
         <article>

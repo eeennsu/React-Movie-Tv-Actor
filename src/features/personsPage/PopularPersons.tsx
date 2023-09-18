@@ -8,7 +8,7 @@ import { Spin } from 'antd';
 
 const PopularPersons: FC = () => {
 
-    const { data, error, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfinitePopularPersons();
+    const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfinitePopularPersons();
   
     return (
         <article>            

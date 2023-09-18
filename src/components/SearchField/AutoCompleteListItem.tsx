@@ -1,24 +1,30 @@
 import { Avatar, Card, Image, Popover, Spin } from 'antd';
 import type { FC } from 'react';
-import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DetailMovie } from '../../apis/types/movieTypes';
 import { getLImageUrl } from '../../utils/utils';
 import { DetailTv } from '../../apis/types/tvTypes';
 import { DetailPerson } from '../../apis/types/personTypes';
-import { UserOutlined, WomanOutlined, ManOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
+import WomanIcon from '../Icons/WomanIcon';
+import ManIcon from '../Icons/ManIcon';
+import UnknownGenderIcon from '../Icons/NoneDataIcon';
+import useDrawerStore from '../../zustand/drawer/useDrawerStore';
 
 interface Props{
     movieItem?: DetailMovie;
     tvItem?: DetailTv;
     personItem?: DetailPerson;
+    isDrawer?: boolean;
 }
 
-const AutoCompleteListItem: FC<Props> = ({ movieItem, tvItem, personItem }) => {
+const AutoCompleteListItem: FC<Props> = ({ movieItem, tvItem, personItem, isDrawer }) => {
     
     const navigate = useNavigate();
-    const nonePath = useMemo(() => (movieItem && !movieItem.poster_path) || (tvItem && !tvItem.poster_path) || (personItem && !personItem.profile_path), [movieItem, tvItem, personItem]);
     
+    const { setIsDrawerOpen } = useDrawerStore();
+    const nonePath = (movieItem && !movieItem.poster_path) || (tvItem && !tvItem.poster_path) || (personItem && !personItem.profile_path);
+
     const handleNavigate = () => {
         if (movieItem) {
             navigate(`movie/detail/${movieItem?.id}`);
@@ -27,6 +33,8 @@ const AutoCompleteListItem: FC<Props> = ({ movieItem, tvItem, personItem }) => {
         } else if (personItem) {
             navigate (`person/detail/${personItem.id}`);
         }
+
+        isDrawer && setIsDrawerOpen(false);
     }
 
     const cardCover = () => {
@@ -56,16 +64,15 @@ const AutoCompleteListItem: FC<Props> = ({ movieItem, tvItem, personItem }) => {
     const cardDesc = (
         <div>            
             {movieItem?.original_title || tvItem?.original_name || personItem?.original_name}
-            &nbsp;
-            &nbsp;            
+                &nbsp;               
             {
-                (personItem && personItem.gender === 1) ? 
-                (
-                    <WomanOutlined className='p-2 text-white bg-pink-500 rounded-full'/>
-                ) : personItem?.gender ===  2 ? 
-                (
-                    <ManOutlined className='p-2 text-white bg-blue-500 rounded-full'/>
-                ) : ''
+                (personItem && personItem.gender === 1) ? (
+                    <WomanIcon />
+                ) : (personItem?.gender === 2) ? (
+                    <ManIcon />
+                ) : (
+                    <UnknownGenderIcon />
+                )
             }
         </div>
     ) 
@@ -76,12 +83,20 @@ const AutoCompleteListItem: FC<Props> = ({ movieItem, tvItem, personItem }) => {
         </Card>        
     );
 
+    const content = (
+        <li onClick={handleNavigate} className='px-3 py-2 text-sm truncate border-t-2 rounded cursor-pointer max-h-14 text-ellipsis border-t-slate-200/60 first-of-type:border-t-0 hover:bg-white/60 hover:text-gray-700'>
+            {movieItem?.title || tvItem?.name || personItem?.name ||'Not found...'}{' '}           
+        </li>     
+    )
+
     return (
-        <Popover content={popoverImg} placement='right'>
-            <li onClick={handleNavigate} className='px-3 py-2 text-sm truncate border-t-2 rounded cursor-pointer max-h-14 text-ellipsis border-t-slate-200/60 first-of-type:border-t-0 hover:bg-white/60 hover:text-gray-700'>
-                {movieItem?.title || tvItem?.name || personItem?.name ||'Not found...'}{' '}           
-            </li>     
-        </Popover>
+        isDrawer ? (
+            content
+        ) : (
+            <Popover content={popoverImg} placement='right'>
+                {content}    
+            </Popover>
+        )
     );
 };
 

@@ -8,7 +8,7 @@ const MainNavLink: FC<LinkProps> = ({ className: _className, to, ...props }) => 
     const match = useMatch({ path: pathname, end: true });
     
     return (
-        <Link {...props} to={to} className={_className + ` py-5 px-2 ${match && ' text-teal-700 border-b-2 border-b-teal-400'}`} />      
+        <Link {...props} to={to} className={_className + ` py-5 px-2 ${match && ' text-teal-700 border-b-3 border-b-teal-400'}`} />      
     );
 };
 

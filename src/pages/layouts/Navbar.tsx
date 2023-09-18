@@ -1,4 +1,3 @@
-import { useCallback, useState } from 'react';
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 import SearchField from '../../components/SearchField/SearchField';
@@ -8,41 +7,24 @@ import MainNavLink from '../../components/MainNavLink';
 import Drawer from '../../components/Drawer';
 import LoginModal from '../../components/LoginModal';
 import SignUpModal from '../../components/SignUpModal';
-import useLoginModalState from '../../zustand/modal/useLoginModalStore';
 import useSignUpModalStore from '../../zustand/modal/useSignUpModalStore';
-
+import useDrawerStore from '../../zustand/drawer/useDrawerStore';
+import useLoginModalStore from '../../zustand/modal/useLoginModalStore';
 
 const Navbar: FC = () => {
 
-    const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
-
-    const { isLoginModalOpen, setIsLoginModalOpen} = useLoginModalState();
-    const { isSignUpModalOpen, setIsSignUpModalOpen } = useSignUpModalStore();
-
-    const handleDrawerOpen = useCallback(() => {
-        setIsOpenDrawer(true);
-    }, [])
-
-    const handleDrawerClose = useCallback(() => {
-        setIsOpenDrawer(false);
-    }, []);
-
-    const handleLoginModalOpen = useCallback(() => {
-        setIsLoginModalOpen(true);
-    }, [setIsLoginModalOpen])
-
-    const handleLoginModalClose = useCallback(() => {
-        setIsLoginModalOpen(false);
-    }, [setIsLoginModalOpen]);
-
-    const handleSignUpModalOpen = useCallback(() => {
-        setIsSignUpModalOpen(true);
-    }, [setIsSignUpModalOpen]);
-
-    const handleSignUpModalClose = useCallback(() => {
-        setIsSignUpModalOpen(false);
-    }, [setIsSignUpModalOpen]);
+    const { setIsDrawerOpen } = useDrawerStore();
+    const { setIsLoginModalOpen } = useLoginModalStore();
+    const { setIsSignUpModalOpen } = useSignUpModalStore();
     
+    const loginModalOpen = () => {
+        setIsLoginModalOpen(true);
+    }
+
+    const signUpModalOpen = () => {
+        setIsSignUpModalOpen(true);
+    }
+
     return (
         <header className='sticky top-0 z-50 bg-white shadow-lg'>
             <div className='flex items-center h-16 max-w-screen-xl gap-8 px-5 mx-auto sm:px-6 lg:px-20'>
@@ -59,7 +41,7 @@ const Navbar: FC = () => {
                                 <MainNavLink to='tv'>TV</MainNavLink>
                             </li>
                             <li className='text-gray-500 transition hover:text-gray-500/75'>
-                                <MainNavLink to='person'>Person</MainNavLink>
+                                <MainNavLink to='person'>People</MainNavLink>
                             </li>
                         </ul>
                     </nav>                                    
@@ -68,20 +50,20 @@ const Navbar: FC = () => {
                             <SearchField />  
                         </div>                       
                         <div className="hidden lg:flex lg:gap-2">
-                            <button onClick={handleLoginModalOpen} className='block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700'>
+                            <button onClick={loginModalOpen} className='block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700'>
                                 Login
                             </button>           
                                  
-                            <button onClick={handleSignUpModalOpen} className="whitespace-nowrap rounded-md bg-slate-200 px-5 py-2.5 text-sm font-medium  transition hover:bg-slate-300 ">
+                            <button onClick={signUpModalOpen} className="whitespace-nowrap rounded-md bg-slate-200 px-5 py-2.5 text-sm font-medium  transition hover:bg-slate-300 ">
                                 Sign Up
                             </button>
                         </div>
-                        <button className="block px-4 py-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-950 lg:hidden" onClick={handleDrawerOpen}>
+                        <button className="block px-4 py-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-950 lg:hidden" onClick={() => setIsDrawerOpen(true)}>
                             <MenuOutlined />
                         </button>
-                        <Drawer open={isOpenDrawer} onClose={handleDrawerClose} handleLoginModalOpen={handleLoginModalOpen} handleSignUpModalOpen={handleSignUpModalOpen}/>
-                        <LoginModal onCancel={handleLoginModalClose} open={isLoginModalOpen}/>       
-                        <SignUpModal onCancel={handleSignUpModalClose}  open={isSignUpModalOpen}/>
+                        <Drawer />
+                        <LoginModal />       
+                        <SignUpModal />
                     </div>
                 </div>              
             </div>            

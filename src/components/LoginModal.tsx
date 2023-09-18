@@ -1,18 +1,19 @@
-import { Modal as AntdModal, ModalProps, message } from 'antd';
+import { Modal as AntdModal, message } from 'antd';
 import type { FC } from 'react';
-import useLoginStore from '../zustand/login/useUserLoginStore';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import useLoginModalStore from '../zustand/modal/useLoginModalStore';
+import { UserAddOutlined } from '@ant-design/icons';
+import useSignUpModalStore from '../zustand/modal/useSignUpModalStore';
 
 interface FormProps {
     email: string;
     password: string;
 }
 
-const LoginModal: FC<ModalProps> = () => {
+const LoginModal: FC = () => {
 
-    const { setIsLogin } = useLoginStore();
     const { isLoginModalOpen, setIsLoginModalOpen } = useLoginModalStore();
+    const { setIsSignUpModalOpen } = useSignUpModalStore();
     
     const { register, handleSubmit, formState: { errors } } = useForm<FormProps>();
     const onSubmit: SubmitHandler<FormProps> = ({ email, password }) => {
@@ -25,11 +26,16 @@ const LoginModal: FC<ModalProps> = () => {
         message.warning('회원가입 및 로그인은 미구현 상태입니다.');
     };
 
+    const handleSignUpModal = () => {
+        setIsLoginModalOpen(false);
+        setIsSignUpModalOpen(true);
+    }
+
     return (
-        <AntdModal footer={null} centered onCancel={() => setIsLoginModalOpen(false)} open={isLoginModalOpen}>
+        <AntdModal footer={null} centered  onCancel={() => setIsLoginModalOpen(false)} open={isLoginModalOpen}>
             <div className='px-4 py-16 mx-auto rounded md:py-8 md:px-0 lg:px-8 '>            
                 <h1 className='text-2xl font-bold text-center text-teal-600 sm:text-3xl'>
-                    Get started Login
+                    Login
                 </h1>                                   
                 <form onSubmit={handleSubmit(onSubmit)} className='p-4 mt-6 mb-0 rounded-lg shadow-lg md:p-6 lg:p-8'>                                  
                     <div className='relative'>
@@ -65,7 +71,12 @@ const LoginModal: FC<ModalProps> = () => {
                     <button type='submit' className='block w-full px-5 py-3 text-sm font-medium text-white transition bg-teal-600 rounded-lg active:bg-teal-800 hover:bg-teal-700'>                                    
                         Login
                     </button>                                   
-                </form>                
+                </form>             
+                <div className='flex items-center justify-center mt-4'>
+                    <button className='py-3 text-sm font-medium text-teal-600 transition bg-white border-2 border-teal-600 hover:text-white rounded-2xl px-7 hover:bg-teal-700 active:bg-teal-800' onClick={handleSignUpModal}>
+                        Sign Up<UserAddOutlined />
+                    </button>
+                </div>   
             </div> 
         </AntdModal>       
     );

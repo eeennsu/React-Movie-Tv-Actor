@@ -1,11 +1,10 @@
 import type { FC } from 'react';
 import { DetailPerson } from '../../apis/types/personTypes';
-import { Descriptions, Image, Tooltip } from 'antd';
-import type { DescriptionsProps } from 'antd';
+import { Image } from 'antd';
 import { getLImageUrl } from '../../utils/utils';
-import ManIcon from '../../components/GenderIcons/ManIcon';
-import WomanIcon from '../../components/GenderIcons/WomanIcon';
-import UnknownGenderIcon from '../../components/GenderIcons/UnknownGenderIcon';
+import ManIcon from '../../components/Icons/ManIcon';
+import WomanIcon from '../../components/Icons/WomanIcon';
+import NoneDataIcon from '../../components/Icons/NoneDataIcon';
 import dayjs from 'dayjs';
 
 interface Props{
@@ -15,34 +14,6 @@ interface Props{
 const PersonBox: FC<Props> = ({ personData }) => {
     const birthday = dayjs(personData?.birthday);
     const deathday = dayjs(personData?.deathday);
-
-    // const items: DescriptionsProps['items'] = [
-    //     { 
-    //         key: 1,
-    //         label: 'gender',
-    //         children: personData?.gender === 1 ? <WomanIcon /> : personData?.gender === 2 ? <ManIcon /> : <UnknownGenderIcon />,
-    //     },
-    //     {
-    //         key: 2,
-    //         label: 'birthday',
-    //         children: birthday.format('YYYY / MM - DD')
-    //     },
-    //     {
-    //         key: 3,
-    //         label: 'role',
-    //         children: personData?.known_for_department
-    //     },
-    //     {
-    //         key: 4,
-    //         label: 'place of birth',
-    //         children: personData?.place_of_birth
-    //     },
-    //     {
-    //         key: 5,
-    //         label: 'popularity',
-    //         children: personData?.popularity
-    //     }
-    // ];
 
     return ( 
         <article className='flex flex-col mt-4 sm:flex-row '>
@@ -57,11 +28,11 @@ const PersonBox: FC<Props> = ({ personData }) => {
                     personData ? (
                         <div className='grid w-9/12 grid-cols-2 text-center text-md gap-x-0'>
                             <div className='py-3 border-b border-b-amber-600'>gender</div>
-                                <div className='py-3 border-b border-b-amber-600'>{personData?.gender === 1 ? <WomanIcon /> : personData?.gender === 2 ? <ManIcon /> : <UnknownGenderIcon />}</div>
+                                <div className='py-3 border-b border-b-amber-600'>{personData?.gender === 1 ? <WomanIcon /> : personData?.gender === 2 ? <ManIcon /> : <NoneDataIcon />}</div>
                             
                                 <div className='py-3 border-b border-b-amber-600'>birthday</div>
                                 <div className='flex justify-center py-3 border-b border-b-amber-600'>
-                                    <div className="hidden sm:block badge badge-accent badge-outline">{birthday.format('YYYY - MM / DD')}</div>
+                                    <div className="hidden my-0.5 sm:block badge badge-accent badge-outline">{birthday.format('YYYY - MM / DD')}</div>
                                     <div className='block sm:hidden'>
                                         {birthday.format('YYYY - MM / DD')}
                                     </div>
@@ -77,8 +48,7 @@ const PersonBox: FC<Props> = ({ personData }) => {
                                             </div>
                                         </>                            
                                     ) : null
-                                }
-                                        
+                                }                                        
                             <div className='py-3 border-b border-b-amber-600'>role</div>
                             <div className='py-3 border-b border-b-amber-600'>{personData?.known_for_department}</div>
                         

@@ -28,6 +28,8 @@ module.exports = {
         62: '248px',
         68: '272px',
         76: '304px',
+        78: '312px',
+        80: '320px',
         82: '328px',
         84: '336px',
         86: '344px',
@@ -54,6 +56,9 @@ module.exports = {
         5: '5px',
         7: '7px'
       },
+      minHeight: {
+        64: '16rem'
+      }
     },
   },
   plugins: [

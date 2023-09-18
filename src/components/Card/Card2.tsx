@@ -23,9 +23,9 @@ const Card2: FC<Props> = ({ movie, tv }) => {
     }
 
     return (
-        <Link to={url} onClick={handleTopToScroll} className='block mx-2 no-underline'>
-            <div className='w-48 max-w-xs transition duration-200 ease-in-out hover:scale-110'>
-                <div className='relative h-64 overflow-hidden rounded-md shadow-xl card-title'>
+        <Link to={url} onClick={handleTopToScroll} className='block no-underline'>
+            <div className='w-full max-w-xs transition duration-200 ease-in-out hover:scale-110'>
+                <div className='relative overflow-hidden shadow-xl h-88 2xs:h-56 xs:h-76 sm:h-72 md:h-88 lg:h-68 rounded-2xl card-title '>
                     {
                         hasPoster_path ? (
                             <img className='object-cover w-full h-full max-w-xs border-4 border-white rounded-2xl' src={getLImageUrl(hasPoster_path as string)} alt={`poster`}/>

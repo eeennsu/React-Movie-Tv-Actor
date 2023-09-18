@@ -10,9 +10,11 @@ interface Props{
     movieResults?: SearchMovieResponse['results'];
     tvResults?: SearchTvResponse['results'];
     personResults?: SearchPersonResponse['results'];
+    isDrawer?: boolean;
+    onDrawerClose?: () => void;
 }
 
-const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults }) => {
+const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults, isDrawer, onDrawerClose }) => {
 
     const { select } = useSearchSelectStore();
     const { visible } = useSearchAutoListStore();
@@ -28,6 +30,7 @@ const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults })
                             <SerachListItem 
                                 key={result.id} 
                                 movieItem={result}
+                                isDrawer={isDrawer}                               
                             />
                         ))
                     ) : select === 'tv' ? (
@@ -35,6 +38,7 @@ const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults })
                             <SerachListItem 
                                 key={result.id} 
                                 tvItem={result}
+                                isDrawer={isDrawer}                               
                             />
                         ))
                     ) : (
@@ -42,6 +46,7 @@ const AutoCompleteList: FC<Props> = ({ movieResults, tvResults, personResults })
                             <SerachListItem 
                                 key={result.id} 
                                 personItem={result}
+                                isDrawer={isDrawer}                         
                             />
                         )) 
                     )

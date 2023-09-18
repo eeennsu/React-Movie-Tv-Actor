@@ -34,6 +34,7 @@ export interface DetailMovie extends LeastMovieInfo {
     spoken_languages: SpokenLanguage[];
     runtime: number;
     production_companies: PoroductionCompany[];
+    revenue: number;
 }
 
 export interface MovieListResponse {

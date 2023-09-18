@@ -30,7 +30,7 @@ const Card1: FC<Props> = ({ movie, tv, person }) => {
                     }                   
                 </div>
                 <Tooltip placement='top' title={movie?.title || tv?.name || person?.name}>
-                    <div className='my-1 text-sm italic text-center line-clamp-1 md:text-lg'>
+                    <div className='px-1 my-1 text-sm italic text-center line-clamp-1 md:text-lg'>
                         {movie?.title || tv?.name || person?.name}
                     </div>  
                 </Tooltip>                      

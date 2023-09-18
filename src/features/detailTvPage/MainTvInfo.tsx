@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { DetailTv } from '../../apis/types/tvTypes';
-import { getMImageUrl, getXSImageUrl } from '../../utils/utils';
+import { getXSImageUrl } from '../../utils/utils';
 
 interface Props{
     tvData?: DetailTv;
@@ -8,20 +8,26 @@ interface Props{
 
 const MainTvInfo: FC<Props> = ({ tvData }) => {
     
+    console.log(tvData);
+
     return (
         <article className='mt-5 lg:grid lg:grid-cols-5'>
-            <div className='flex lg:w-52'>
-                <img className='w-2/5 xs:w-2/3 lg:w-full' src={`${tvData?.poster_path && getXSImageUrl(tvData?.poster_path)}`} alt={`${tvData?.original_name} poster`}/>
-                <div className='flex flex-col items-center justify-center w-full px-4 text-center lg:hidden gap-y-6'>
+            <div className='xs:flex lg:w-52'>
+                <div className='flex justify-center w-full xs:block'>
+                    <img className='w-2/3 xs:w-full' src={`${tvData?.poster_path && getXSImageUrl(tvData?.poster_path)}`} alt={`${tvData?.original_name} poster`}/>
+                </div>                   
+                <div className='flex flex-col items-center justify-center w-full px-4 mt-6 text-center xs:mt-0 lg:hidden gap-y-6'>
                     <h2 className="text-3xl font-thin text-gray-900">
-                        {tvData?.original_name}
+                        {tvData?.name}
                     </h2>
                     {
-                        tvData?.hompage && (
-                            <p className='mt-4 text-gray-500 lg:text-lg'>
-                                homepage - {tvData.hompage}
-                            </p>
-                        )
+                        tvData?.homepage && (
+                            <p className='mt-4 text-gray-500 lg:text-lg hover:underline'>
+                                <a href={tvData.homepage} target='_blank' rel='noreferrer noopener'>
+                                    {tvData.homepage}
+                                </a>
+                            </p>                            
+                        )                       
                     }              
                 </div>   
             </div>              
@@ -30,10 +36,12 @@ const MainTvInfo: FC<Props> = ({ tvData }) => {
                     <div className="max-w-screen-xl px-1 py-4 mx-auto lg:px-3 lg:py-6">
                         <div className="hidden max-w-3xl p-10 mx-auto text-center lg:block">
                             <h2 className="text-3xl font-thin text-gray-900 lg:text-4xl">
-                                {tvData?.original_name}
+                                {tvData?.name}
                             </h2>
-                            <p className="mt-4 text-gray-500 lg:text-lg">
-                                {tvData?.origin_country}
+                            <p className="mt-4 text-gray-500 lg:text-lg hover:underline">
+                                <a href={tvData?.homepage} rel='noreferrer noopener'>
+                                    {tvData?.homepage}
+                                </a>                                
                             </p>
                         </div>                      
                         <div className="mt-2 lg:mt-3">

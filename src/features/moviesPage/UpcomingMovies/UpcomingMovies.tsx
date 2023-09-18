@@ -8,7 +8,7 @@ import MediaSkeleton from '../../../components/Skeleton/MediaSkeleton';
 
 const UpcomingMovies: FC = () => {
 
-    const { data, error, isLoading } = useUpcomingMovies();
+    const { data, isLoading } = useUpcomingMovies();
 
     return (
         <article>

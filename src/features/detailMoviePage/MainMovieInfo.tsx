@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { formatterBudget, getRound, getXSImageUrl } from '../../utils/utils';
+import { moneyFormatter, getRound, getXSImageUrl } from '../../utils/utils';
 import { DetailMovie } from '../../apis/types/movieTypes';
 
 interface Props {
@@ -8,15 +8,18 @@ interface Props {
 
 const MainMovieInfo: FC<Props> = ({ movieData }) => {
 
+    console.log('movieData', movieData);
     return (
         <article className='mt-5 lg:grid lg:grid-cols-5'>
-            <div className='flex lg:w-52'>
-                <img className='w-2/5 xs:w-2/3 lg:w-full' src={`${movieData?.poster_path && getXSImageUrl(movieData?.poster_path)}`} alt={`${movieData?.original_title} poster`}/>
-                <div className='flex flex-col items-center justify-center w-full px-4 text-center lg:hidden gap-y-6'>
+            <div className='xs:flex lg:w-52'>
+                <div className='flex justify-center w-full xs:block'>
+                    <img className='w-2/3 xs:w-full' src={`${movieData?.poster_path && getXSImageUrl(movieData?.poster_path)}`} alt={`${movieData?.original_title} poster`}/>
+                </div>               
+                <div className='flex flex-col items-center justify-center w-full px-4 mt-6 text-center xs:mt-0 lg:hidden gap-y-6'>
                     <h2 className="text-3xl font-thin text-gray-900">
                         {movieData?.title}
                     </h2>
-                    <p className="mt-4 text-gray-500 lg:text-lg">
+                    <p className="mt-0 text-gray-500 md:mt-4 md:text-3xl">
                         {movieData?.tagline}
                     </p>
                 </div>   
@@ -57,7 +60,7 @@ const MainMovieInfo: FC<Props> = ({ movieData }) => {
                                         예산
                                     </dt>       
                                     <dd className="text-4xl font-extrabold text-blue-600 lg:text-3xl">
-                                        {formatterBudget(movieData?.budget as number)}
+                                        {moneyFormatter(movieData?.budget as number)}
                                     </dd>                                                         
                                 </div>
                             </dl>
