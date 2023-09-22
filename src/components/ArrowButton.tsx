@@ -14,9 +14,9 @@ const ArrowButton: FC<Props> = ({ position, onClick }) => {
         <button onClick={onClick} className={`absolute z-10 top-1/2 -translate-y-9 ${_className}`} >
             {
                 position === 'left' ? (
-                    <ArrowLeftOutlined className='p-3 text-xl text-white transition-colors bg-teal-500 rounded-full shadow-lg md:p-4 hover:text-yellow-500 hover:bg-slate-700' />
+                    <ArrowLeftOutlined className='p-3 text-xl transition-colors bg-teal-500 rounded-full shadow-lg text-slate-100 md:p-4 hover:text-teal-500 hover:bg-slate-100' />
                 ) : (
-                    <ArrowRightOutlined className='p-3 text-xl text-white transition-colors bg-teal-500 rounded-full shadow-lg md:p-4 hover:text-yellow-500 hover:bg-slate-700' />
+                    <ArrowRightOutlined className='p-3 text-xl transition-colors bg-teal-500 rounded-full shadow-lg text-slate-100 md:p-4 hover:text-teal-500 hover:bg-slate-100' />
                 )
             }
         </button>
