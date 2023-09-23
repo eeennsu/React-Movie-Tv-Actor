@@ -6,6 +6,8 @@ import SearchField from './SearchField/SearchField';
 import useDrawerStore from '../zustand/drawer/useDrawerStore';
 import useLoginModalStore from '../zustand/modal/useLoginModalStore';
 import useSignUpModalStore from '../zustand/modal/useSignUpModalStore';
+import LoginButton from './User/LoginButton';
+import SignUpButton from './User/SignUpButton';
 
 const Drawer: FC = () => {
 
@@ -28,14 +30,10 @@ const Drawer: FC = () => {
     }
 
     return (
-        <AntdDrawer title={<MainTitle />} placement='right' onClose={handleClose} open={isDrawerOpen}>            
+        <AntdDrawer title={<MainTitle />} placement='right'  onClose={handleClose} open={isDrawerOpen}>            
             <div className='flex items-center mt-2 mb-10 justify-evenly'>
-                <button onClick={handleLoginModal} className="px-8 py-3 font-semibold text-white transition bg-teal-600 rounded-full hover:bg-teal-700">
-                    Login
-                </button>
-                <button onClick={handleSignUpModal} className="px-8 py-3 font-semibold transition rounded-full hover:bg-slate-300 bg-slate-200 dark:bg-gray-100">
-                    Sign Up
-                </button>
+                <LoginButton onClick={handleLoginModal} isMobile />
+                <SignUpButton onClick={handleSignUpModal} isMobile />
             </div> 
 
             <ul className='flex flex-col text-lg font-semibold gap-y-4'>

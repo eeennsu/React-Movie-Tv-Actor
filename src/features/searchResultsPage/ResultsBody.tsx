@@ -36,7 +36,7 @@ const ResultsBody: FC = () => {
     }, [fetchingCount, movies, tvs, persons, setVisible]);
     
     return (
-        <article className='p-4 rounded-md shadow-2xl bg-white/80'>           
+        <article className='p-4 rounded-md shadow-2xl bg-white/80 dark:bg-transparent'>           
             {
                 fetchingCount ? (
                     <ListTemplate isLast>

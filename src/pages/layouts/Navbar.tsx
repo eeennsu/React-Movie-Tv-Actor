@@ -10,6 +10,8 @@ import SignUpModal from '../../components/SignUpModal';
 import useSignUpModalStore from '../../zustand/modal/useSignUpModalStore';
 import useDrawerStore from '../../zustand/drawer/useDrawerStore';
 import useLoginModalStore from '../../zustand/modal/useLoginModalStore';
+import LoginButton from '../../components/User/LoginButton';
+import SignUpButton from '../../components/User/SignUpButton';
 
 const Navbar: FC = () => {
 
@@ -26,7 +28,7 @@ const Navbar: FC = () => {
     }
 
     return (
-        <header className='sticky top-0 z-50 bg-white shadow-lg'>
+        <header className='sticky top-0 z-50 bg-white shadow-lg dark:bg-gray-600'>
             <div className='flex items-center h-16 max-w-screen-xl gap-8 px-5 mx-auto sm:px-6 lg:px-20'>
                 <Link to='/'>
                     <MainTitle />
@@ -34,14 +36,20 @@ const Navbar: FC = () => {
                 <div className='flex items-center justify-end flex-1 gap-4 lg:justify-between'>
                     <nav className='hidden lg:block'>
                         <ul className='flex items-center justify-center h-16 gap-x-4'>
-                            <li className='text-gray-500 transition hover:text-gray-500/75'>
-                                <MainNavLink to='/' >Movie</MainNavLink>
+                            <li className='text-gray-500 transition dark:text-white dark:hover:text-teal-600 hover:text-gray-500/75'>
+                                <MainNavLink to='/' >
+                                    Movie
+                                </MainNavLink>
                             </li>
-                            <li className='text-gray-500 transition hover:text-gray-500/75'>
-                                <MainNavLink to='tv'>TV</MainNavLink>
+                            <li className='text-gray-500 transition dark:text-white dark:hover:text-teal-600 hover:text-gray-500/75'>
+                                <MainNavLink to='tv'>
+                                    TV
+                                </MainNavLink>
                             </li>
-                            <li className='text-gray-500 transition hover:text-gray-500/75'>
-                                <MainNavLink to='person'>People</MainNavLink>
+                            <li className='text-gray-500 transition dark:text-white dark:hover:text-teal-600 hover:text-gray-500/75'>
+                                <MainNavLink to='person'>
+                                    People
+                                </MainNavLink>
                             </li>
                         </ul>
                     </nav>                                    
@@ -50,15 +58,10 @@ const Navbar: FC = () => {
                             <SearchField />  
                         </div>                       
                         <div className="hidden lg:flex lg:gap-2">
-                            <button onClick={loginModalOpen} className='block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700'>
-                                Login
-                            </button>           
-                                 
-                            <button onClick={signUpModalOpen} className="whitespace-nowrap rounded-md bg-slate-200 px-5 py-2.5 text-sm font-medium  transition hover:bg-slate-300 ">
-                                Sign Up
-                            </button>
+                            <LoginButton onClick={loginModalOpen} isMobile={false}/>
+                            <SignUpButton onClick={signUpModalOpen} isMobile={false}/>
                         </div>
-                        <button className="block px-4 py-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-950 lg:hidden" onClick={() => setIsDrawerOpen(true)}>
+                        <button className="block px-4 py-2 text-gray-600 transition bg-gray-100 rounded dark:bg-slate-500 hover:text-gray-950 lg:hidden" onClick={() => setIsDrawerOpen(true)}>
                             <MenuOutlined />
                         </button>
                         <Drawer />

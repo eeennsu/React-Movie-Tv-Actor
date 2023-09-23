@@ -17,7 +17,7 @@ const KnownForMedias: FC<Props> = ({ also_known_as }) => {
                 {
                     !!also_known_as?.length && (
                         also_known_as.map(media => (
-                            <div className='p-2 my-4 border-b-2 ps-0 border-neutral'>
+                            <div className='p-2 my-4 border-b-2 dark:border-b-slate-300 ps-0 border-neutral'>
                                 <span className='mr-2 dot dot-primary'>
                                     {media}
                                 </span>                            

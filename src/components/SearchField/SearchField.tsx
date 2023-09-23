@@ -101,7 +101,7 @@ const SearchField: FC<Props> = ({ isDrawer }) => {
         <>
             <div className='flex items-center'>
                 <div className='w-36 h-11'>
-                    <select value={select} onChange={handleSelectChange} className="w-full h-full text-sm text-gray-700 border-gray-300 rounded-l-lg">
+                    <select value={select} onChange={handleSelectChange} className="w-full h-full text-sm text-gray-700 border-gray-300 rounded-l-lg dark:bg-gray-300">
                         <option value={'movie'}>Movie</option>
                         <option value={'tv'}>TV</option>
                         <option value={'person'}>People</option>
@@ -117,7 +117,7 @@ const SearchField: FC<Props> = ({ isDrawer }) => {
                         placeholder="Search for..."
                         minLength={2}
                         maxLength={20}
-                        className="w-full h-full py-2 text-sm transition border-gray-200 rounded-r-lg shadow-sm md:textarea-md hover:bg-gray-200 active:border-1"
+                        className="w-full h-full py-2 text-sm transition border-gray-200 rounded-r-lg shadow-sm dark:text-gray-800 md:textarea-md dark:bg-gray-300 hover:bg-gray-200 active:border-1"
                         onKeyDown={(e) => e.key === 'Enter' && doSearch()}
                     />
                     <span className="absolute inset-y-0 grid w-10 end-0 place-content-center">                        

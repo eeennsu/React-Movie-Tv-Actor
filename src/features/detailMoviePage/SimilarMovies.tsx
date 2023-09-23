@@ -3,6 +3,7 @@ import {  MovieListResponse } from '../../apis/types/movieTypes';
 import ListTemplate from '../../components/ListTemplate';
 import SubTitle from '../../components/SubTitle';
 import Card2 from '../../components/Card/Card2';
+import Divider from '../../components/Divider';
 
 interface Props {
     similarDatas?: MovieListResponse
@@ -12,7 +13,7 @@ const SimilarMovies: FC<Props> = ({ similarDatas }) => {
 
     return (
         <article className='p-2'>   
-           <div className='my-10 border border-t-2'/>
+            <Divider />
             <SubTitle>비슷한 작품들</SubTitle>      
             <ListTemplate isLast>
                 {
