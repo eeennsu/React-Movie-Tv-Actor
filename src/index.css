@@ -1,5 +1,5 @@
 /* 구글 폰트 */
-// @import 구문은 vite react 에서, 가장 최상단에 있어야 잘 적용된다.
+/* @import 구문은 vite react 에서, 가장 최상단에 있어야 잘 적용된다. */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Roboto:wght@100;300&display=swap');
 
 
