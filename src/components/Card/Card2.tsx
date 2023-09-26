@@ -30,7 +30,7 @@ const Card2: FC<Props> = ({ movie, tv }) => {
                         hasPoster_path ? (
                             <img className='object-cover w-full h-full max-w-xs border-4 border-white rounded-2xl' src={getLImageUrl(hasPoster_path as string)} alt={`poster`}/>
                         ) : (
-                            <img className='object-cover w-full h-full max-w-xs rounded-xl' src={`${process.env.PUBLIC_URL}/images/no_image.png`} alt='no-data'/>
+                            <img className='object-cover w-full h-full max-w-xs rounded-xl' src={`${import.meta.env.PUBLIC_URL}/images/no_image.png`} alt='no-data'/>
                         )
                     }
                 </div>

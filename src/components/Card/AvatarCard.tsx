@@ -16,7 +16,7 @@ const AvatarCard: FC<Props> = ({ persons }) => {
     const nonePath = persons && !persons.profile_path;
 
     const cardCover = nonePath ? (
-        <img src={`${process.env.PUBLIC_URL}/images/no_avatar.png`} className='object-contain w-3/4 p-5 ' alt='profile' style={{ minHeight: 291 }} />
+        <img src={`${import.meta.env.PUBLIC_URL}/images/no_avatar.png`} className='object-contain w-3/4 p-5 ' alt='profile' style={{ minHeight: 291 }} />
     ) : (
         <img src={getXSImageUrl(persons?.profile_path as string)} className='object-cover' alt='profile' style={{ minHeight: 201, maxWidth: 192 }} />
     );      

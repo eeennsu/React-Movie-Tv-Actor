@@ -33,7 +33,7 @@ const PopularPersonsItem: FC<Props> = ({ person, index, fetchMore, isLastItem, i
                     person?.profile_path ? (
                         <img className='object-cover w-full h-full max-w-xs transition duration-200 ease-in-out hover:scale-105 rounded-xl' src={person?.profile_path && getLImageUrl(person.profile_path as string)} alt={`poster`}/>
                     ) : (
-                        <img className='object-cover w-full h-full max-w-xs rounded-xl' src={`${process.env.PUBLIC_URL}/images/no_image.png`} alt='no-data'/>
+                        <img className='object-cover w-full h-full max-w-xs rounded-xl' src={`${import.meta.env.PUBLIC_URL}/images/no_image.png`} alt='no-data'/>
                     )
                 }
             </div>

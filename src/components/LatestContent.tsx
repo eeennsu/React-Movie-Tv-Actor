@@ -19,7 +19,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                     ) : ( movieData && movieData.backdrop_path ) ? (
                         <img src={getLImageUrl(movieData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
                     ) : (
-                        <img className='object-cover w-full h-full rounded-2xl' src={`${process.env.PUBLIC_URL}/images/basic.jpg`} alt="basic" />
+                        <img className='object-cover w-full h-full rounded-2xl' src={`${import.meta.env.PUBLIC_URL}/images/basic.jpg`} alt="basic" />
                     )
                 }                      
             </div>            
