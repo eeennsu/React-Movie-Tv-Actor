@@ -12,7 +12,11 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <!-- <link rel="/manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+    <!-- vite 프로젝트에 있는 부분이라 추가 -->
+    <link rel="icon" type="image/svg+xml" href="/react-movie-tv-actor/vite.svg" />
+    <!-- CRA -> Vite 로 마이그레이션하던 중, manifest.json 파일을 불러오는데 uri marformed라는 오류 발생,
+       기본 vite 프로젝트는 이 부분이 없는 것을 확인, 따라서 주석 처리-->
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -23,8 +27,8 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <script type="module" crossorigin src="/assets/index-e0a9de02.js"></script>
-    <link rel="stylesheet" href="/assets/index-538620d9.css">
+    <script type="module" crossorigin src="/react-movie-tv-actor/assets/index-b73e298a.js"></script>
+    <link rel="stylesheet" href="/react-movie-tv-actor/assets/index-d589d80f.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
