@@ -12,7 +12,7 @@ const Footer: FC = () => {
                 <div className='flex justify-center'>
                     <MainTitle />
                 </div>
-                <p className='hidden max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-gray-950 md:block'> 
+                <p className='hidden max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 dark:text-white md:block'> 
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
                     consequuntur amet culpa cum itaque neque.
                 </p>
