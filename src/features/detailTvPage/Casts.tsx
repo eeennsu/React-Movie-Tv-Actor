@@ -6,6 +6,7 @@ import ListTemplate from '../../components/ListTemplate';
 import { CheckOutlined } from '@ant-design/icons';
 import AvatarCard from '../../components/Card/AvatarCard';
 import useGetMoreCasts from '../../hooks/commons/useGetMoreCasts';
+import Divider from '../../components/Divider';
 
 interface Props {
     castsData?: LeastPersonInfo2List;
@@ -24,10 +25,9 @@ const Casts: FC<Props> = ({ castsData }) => {
 
     useGetMoreCasts(castsData, visibleCount, setCasts);
 
-
     return (
         <article>            
-            <div className='my-10 border border-t-2'/>
+            <Divider />
             <SubTitle>출연 배우</SubTitle>    
             <ListTemplate isLast>
                 {

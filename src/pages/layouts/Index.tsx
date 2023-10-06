@@ -11,11 +11,11 @@ const Index: FC = () => {
         <div className='flex flex-col min-h-screen'>
             <AutoScrollToTop />             {/* 페이지 바뀔 때마다 자동으로 맨 위로 끌어올리는 훅 */}
             <Navbar />
-            <div className='flex-grow'>
-                <main className='max-w-screen-xl px-4 py-6 mx-auto md:px-12 xl:px-28'>
+            <main className='flex-grow'>
+                <div className='max-w-screen-xl px-4 py-6 mx-auto md:px-12 xl:px-28'>
                     <Outlet />
-                </main>             
-            </div>    
+                </div>             
+            </main>    
             <FloatButton.BackTop />        
             <Footer />
         </div>

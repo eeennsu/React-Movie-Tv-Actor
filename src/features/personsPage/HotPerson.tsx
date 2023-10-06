@@ -21,21 +21,18 @@ const HotPerson: FC = () => {
                 backgroundRepeat: 'no-repeat',        
                 backgroundSize: 'cover'
             }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className='flex-col gap-0 2xs:flex-row hero-content md:flex-row-reverse lg:gap-20'>
+                <div className="hero-overlay bg-opacity-60" />
+                <section className='flex-col gap-0 2xs:flex-row hero-content md:flex-row-reverse lg:gap-20'>
                     <Image src={getLImageUrl(onePerson.profile_path as string)} className='max-w-xs m-0 rounded-lg shadow-2xl xs:m-2' alt={`${onePerson?.profile_path}-poster`}/>
-                    <div className='h-full p-2 2xs:px-2 xs:px-5'>
-                        <h1 className='hidden font-bold text-center text-white lg:block lg:text-5xl lg:text-left'>{onePerson?.name}</h1>
+                    <div className='h-full p-2 2xs:px-2 xs:px-5'>        
                         <div className='text-white sm:px-2 md:my-8'>
                             <p className='text-xs text-center xs:text-lg sm:text-left'>
                                 높은 인기를 얻고 있는 배우  
                             </p>                        
-                            <blockquote className='block px-4 my-4 text-2xl text-center sm:text-4xl sm:hidden'>
+                            <blockquote className='px-4 my-4 text-2xl text-center sm:text-5xl'>
                                 <span>{onePerson?.name}</span>
                             </blockquote>
-                            <blockquote className='relative hidden italic text-center sm:block my-7 md:mx-4 md:my-6'>
-                                <span className='p-5 after:absolute after:bottom-0 after:right-0 after:translate-x-2 after:translate-y-4 after:content-["」"]  after:text-5xl xs:text-2xl sm:text-3xl md:text-5xl font-bold  before:absolute before:top-0 before:left-0 before:content-["「"] before:-translate-x-2 before:-translate-y-3 before:text-5xl '>{onePerson?.original_name || onePerson?.name}</span>
-                            </blockquote>  
+                        
                             <p className='text-xs text-center text-white sm:text-right xs:text-lg'>
                                 을 소개합니다! 
                             </p>                                  
@@ -50,7 +47,7 @@ const HotPerson: FC = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </section>
             </article>   
         )
         // <HotPersonSkeleton />

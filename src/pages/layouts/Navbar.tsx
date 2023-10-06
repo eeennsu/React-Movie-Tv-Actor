@@ -34,7 +34,7 @@ const Navbar: FC = () => {
                     <MainTitle />
                 </Link>
                 <div className='flex items-center justify-end flex-1 gap-4 lg:justify-between'>
-                    <nav className='hidden lg:block'>
+                    <nav aria-label='desktop-navigation' className='hidden lg:block'>
                         <ul className='flex items-center justify-center h-16 gap-x-4'>
                             <li className='text-gray-500 transition dark:text-white dark:hover:text-teal-600 hover:text-gray-500/75'>
                                 <MainNavLink to='/' >

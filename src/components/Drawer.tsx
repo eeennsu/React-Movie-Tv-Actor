@@ -31,26 +31,28 @@ const Drawer: FC = () => {
 
     return (
         <AntdDrawer title={<MainTitle />} placement='right'  onClose={handleClose} open={isDrawerOpen}>            
-            <div className='flex items-center mt-2 mb-10 justify-evenly'>
+            <section className='flex items-center mt-2 mb-10 justify-evenly'>
                 <LoginButton onClick={handleLoginModal} isMobile />
                 <SignUpButton onClick={handleSignUpModal} isMobile />
-            </div> 
+            </section> 
 
-            <ul className='flex flex-col text-lg font-semibold gap-y-4'>
-                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='/'>Movie</SideNavLink>
-                </li>
-                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='/tv'>TV</SideNavLink>
-                </li>
-                <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
-                    <SideNavLink to='/person'>People</SideNavLink>
-                </li>              
-            </ul>     
+            <nav aria-label='mobile-navigation'>
+                <ul className='flex flex-col text-lg font-semibold gap-y-4'>
+                    <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                        <SideNavLink to='/'>Movie</SideNavLink>
+                    </li>
+                    <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                        <SideNavLink to='/tv'>TV</SideNavLink>
+                    </li>
+                    <li onClick={handleClose} className='p-1 border-b border-b-neutral-200/80'>
+                        <SideNavLink to='/person'>People</SideNavLink>
+                    </li>              
+                </ul>  
+            </nav>               
                  
-            <div className='mt-12'>
+            <section className='mt-12'>
                 <SearchField isDrawer />
-            </div>                                     
+            </section>                                     
         </AntdDrawer>   
     );
 };

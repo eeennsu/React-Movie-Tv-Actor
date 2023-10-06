@@ -12,7 +12,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
     
     return (
         <article className='relative flex flex-col w-full shadow-2xl h-96 rounded-2xl'>
-            <div className='absolute w-full h-96'>   
+            <section className='absolute w-full h-96'>   
                 { 
                     (tvData && tvData.backdrop_path) ? (
                         <img src={getLImageUrl(tvData.backdrop_path)} className='object-cover w-full h-full rounded-2xl' alt='lateset movei logo'/>
@@ -22,8 +22,8 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                         <img className='object-cover w-full h-full rounded-2xl' src={`${import.meta.env.BASE_URL}/images/basic.jpg`} alt="basic" />
                     )
                 }                      
-            </div>            
-            <div className='relative w-full h-full rounded-2xl'>
+            </section>            
+            <section className='relative w-full h-full rounded-2xl'>
                 <div className='absolute bottom-0 left-0 flex w-full bg-gradient-to-t from-black to-transparent rounded-2xl'>
                     <div className='flex flex-col w-full p-4 font-bold rounded-2xl'>
                         <h1 className='text-3xl italic font-bold text-white md:text-6xl '>
@@ -48,7 +48,7 @@ const LatestContent: FC<Props> = ({ movieData, tvData }) => {
                         </h3>
                     </div>                          
                 </div>              
-            </div> 
+            </section> 
         </article>
     );
 };
