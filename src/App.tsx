@@ -12,23 +12,21 @@ import NotFound from './pages/Error/NotFound';
 
 function App() {
     
+    console.log(import.meta.env.DEV ? 'dev 모드' : 'prod 모드');
+
     return (
         <ErrorBoundary fallback={<p>something error..</p>} onError={(err, info) => console.log('err', err)}>            
-            <BrowserRouter basename={import.meta.env.DEV ? '/react-movie-tv-actor/' : '/'}>                
+            <BrowserRouter basename='/react-movie-tv-actor/'>                
                 <Routes>         
                     <Route path='/' element={<Index />} >
                         <Route index element={<MoviesPage />} />                  {/* 기본 홈페이지 = 영화 페이지*/}
                         <Route path='/movie/detail/:id' element={<DetailMoviePage />} />
+                        
+                        <Route path='/tv'element={<TvsPage />} />
+                        <Route path='/tv/detail/:id' element={<DetailTvPage />} />   
 
-                        <Route path='/tv'>
-                            <Route index element={<TvsPage /> } />
-                            <Route path='/tv/detail/:id' element={<DetailTvPage />} />
-                        </Route>
-                
-                        <Route path='/person'>
-                            <Route index element={<PersonsPage />} />
-                            <Route path='/person/detail/:id' element={<DetailPersonPage />} />
-                        </Route>
+                        <Route path='/person' element={<PersonsPage />} />                         
+                        <Route path='/person/detail/:id' element={<DetailPersonPage />} />           
                     
                         <Route path='/search/result/:select' element={<SearchResultsPage />} />   
                     </Route>           
